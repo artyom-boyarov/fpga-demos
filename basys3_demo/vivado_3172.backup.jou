@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue May 31 08:45:58 2022
+# Process ID: 3172
+# Current directory: C:/Users/artyo/Desktop/Vivado/basys3_demo
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3820 C:\Users\artyo\Desktop\Vivado\basys3_demo\basys3_demo.xpr
+# Log file: C:/Users/artyo/Desktop/Vivado/basys3_demo/vivado.log
+# Journal file: C:/Users/artyo/Desktop/Vivado/basys3_demo\vivado.jou
+# Running On: LAPTOP-RLSJ6GTT, OS: Windows, CPU Frequency: 2371 MHz, CPU Physical cores: 6, Host memory: 7907 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/artyo/Desktop/Vivado/basys3_demo/basys3_demo.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 3
+wait_on_run synth_1
+launch_runs impl_1 -jobs 3
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+startgroup
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [get_designs synth_1]
+set_property BITSTREAM.CONFIG.CONFIGRATE 33 [get_designs synth_1]
+set_property config_mode SPIx4 [current_design]
+endgroup
+set_property target_constrs_file C:/Users/artyo/Desktop/Vivado/basys3_demo/Basys3_Master.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 3
+wait_on_run impl_1

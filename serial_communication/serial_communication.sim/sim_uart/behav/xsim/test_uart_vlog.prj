@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../serial_communication.srcs/sources_1/new/uart.sv" \
+"../../../../serial_communication.srcs/sim_1/new/test_uart.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
