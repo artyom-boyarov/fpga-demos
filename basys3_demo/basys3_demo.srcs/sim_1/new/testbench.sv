@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/09/2022 04:59:49 PM
+// Create Date: 01/22/2023 01:18:50 PM
 // Design Name: 
-// Module Name: seg7_counter
+// Module Name: testbench
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module seg7_counter(
-        
+module testbench(
     );
 endmodule

@@ -90,6 +90,8 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/Users/artyo/Desktop/Vivado/basys3_demo/basys3_demo.srcs/sources_1/new/BCD.sv
+  C:/Users/artyo/Desktop/Vivado/basys3_demo/basys3_demo.srcs/sources_1/new/button_counter.sv
+  C:/Users/artyo/Desktop/Vivado/basys3_demo/basys3_demo.srcs/sources_1/new/seven_seg_controller.sv
   C:/Users/artyo/Desktop/Vivado/basys3_demo/basys3_demo.srcs/sources_1/new/top.sv
 }
 OPTRACE "Adding files" END { }
