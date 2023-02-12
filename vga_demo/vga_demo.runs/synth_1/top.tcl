@@ -84,12 +84,14 @@ set_property parent.project_path C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2022.1/xhub/board_store/xilinx_board_store} [current_project]
-set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
 set_property ip_output_repo c:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_mem {
+  C:/Users/artyo/Desktop/Vivado/vga_demo/tools/image_file.mem
+  C:/Users/artyo/Desktop/Vivado/vga_demo/tools/Mandelbrot_440x330.mem
+}
 read_verilog -library xil_defaultlib -sv {
   C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/image_gen.sv
   C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/vga_counter.sv

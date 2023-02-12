@@ -23,6 +23,7 @@
 module top(
     input logic clk,
     input logic[15:0] sw,
+    input logic btnC,
     output logic[15:0] led,
     output logic[3:0] vga_red,
     output logic[3:0] vga_blue,
@@ -34,30 +35,36 @@ module top(
     // 25.2 MHz Clock
     logic clk_25mhz;
     
-    clk_wiz_0 (clk_25mhz, clk);
+    clk_wiz_0 clk_wiz(clk_25mhz, clk);
     
     // VGA counting unit
     logic[9:0] pos_x;
     logic[9:0] pos_y;
-    logic hsync, vsync;
-    logic de;
+    logic[18:0] mem_idx;
+    logic hsync_s1, hsync_s2, vsync_s1, vsync_s2;
+    logic de_s1, de_s2;
     
     vga_counter impl_vga_counter (
         clk_25mhz,
+        btnC,
         pos_x,
         pos_y,
-        hsync,
-        vsync,
-        de
+        hsync_s1,
+        vsync_s1,
+        de_s1,
+	    mem_idx
     );
     
     // Image generator
+	// Make use of 1 pipeline register - BRAM only needs latency of 1 and the output is registered
     logic[3:0] red, green, blue;
     image_gen image_gen_impl(
+        clk_25mhz,
+        btnC,
         pos_x,
         pos_y,
-        de,
-        sw[11:0],
+        de_s1,
+        mem_idx,
         red,
         green,
         blue
@@ -65,9 +72,14 @@ module top(
     
     // Register each signal to avoid clock skew
     always_ff @(posedge clk_25mhz) begin
-        vga_hsync <= hsync;
-        vga_vsync <= vsync;
-        if (de) begin
+    
+        hsync_s2 <= hsync_s1;
+        vsync_s2 <= vsync_s1;
+        de_s2 <= de_s1;
+    
+        vga_hsync <= hsync_s2;
+        vga_vsync <= vsync_s2;
+        if (de_s2) begin
             vga_red     <= red;
             vga_green   <= green;
             vga_blue    <= blue;
@@ -77,5 +89,5 @@ module top(
             vga_blue    <= 4'h0;
         end
     end
-    
+
 endmodule
