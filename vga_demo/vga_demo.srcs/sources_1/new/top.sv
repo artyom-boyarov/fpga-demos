@@ -58,6 +58,7 @@ module top(
     // Image generator
 	// Make use of 1 pipeline register - BRAM only needs latency of 1 and the output is registered
     logic[3:0] red, green, blue;
+    /*
     image_gen image_gen_impl(
         clk_25mhz,
         btnC,
@@ -68,6 +69,17 @@ module top(
         red,
         green,
         blue
+    );*/
+    effects effects_impl (
+        .clk(clk_25mhz),
+        .reset(btnC),
+        .pos_x(pos_x),
+        .pos_y(pos_y),
+        .de(de_s1),
+        .choice(sw[2:0]),
+        .red(red),
+        .green(green),
+        .blue(blue) 
     );
     
     // Register each signal to avoid clock skew

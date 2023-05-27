@@ -50,7 +50,7 @@ module vga_counter(
     always_comb begin
         hsync = ~(pos_x >= HS_STA && pos_x < HS_END);
         vsync = ~(pos_y >= VS_STA && pos_y < VS_END);
-        de = (pos_x < IMAGE_WIDTH && pos_y < IMAGE_HEIGHT);
+        de = (pos_x <= HA_END && pos_y <= VA_END);
     end
     
     always_ff @(posedge clk_pix)

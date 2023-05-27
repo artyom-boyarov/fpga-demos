@@ -93,7 +93,8 @@ read_mem {
   C:/Users/artyo/Desktop/Vivado/vga_demo/tools/Mandelbrot_440x330.mem
 }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/image_gen.sv
+  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/effects.sv
+  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/raster_bars.sv
   C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/vga_counter.sv
   C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/top.sv
 }
