@@ -22,19 +22,16 @@
 
 module baud_gen
     #(parameter DVSR=216) // V = (F/(8*B)) - 1. 8 samples are taken for 57600 baud rate
-(
-    input clk, reset,
-    output tick
+    (
+        input logic clk, reset,
+        output logic tick
     );
     
     logic[10:0] counter;
     logic[10:0] counter_next;
     
-    always_ff @(posedge clk, posedge reset)
-        if (reset)
-            counter <= 0;
-        else
-            counter <= counter_next;
+    always_ff @(posedge clk)
+        counter <= counter_next;
     
     assign counter_next = (counter == DVSR) ? 0 : counter + 1;
     assign tick = (counter == 1);

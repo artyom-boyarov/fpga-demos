@@ -5,7 +5,47 @@ Design Route Status
        # of nets not needing routing.......... :          94 :
            # of internally routed nets........ :          94 :
        # of routable nets..................... :         102 :
-           # of fully routed nets............. :         102 :
-       # of nets with routing errors.......... :           0 :
+           # of fully routed nets............. :          68 :
+       # of nets with routing errors.......... :          34 :
+           # of nets with some unrouted pins.. :           2 :
+           # of nets with resource conflicts.. :          34 :
+           # of nets with antennas/islands.... :          12 :
    ------------------------------------------- : ----------- :
+
+
+Nets with Routing Errors: (only the first 10 nets are listed)
+  btnC_IBUF
+    Invalid Programming for Site: ILOGIC_X0Y13 (type: ILOGICE3) (Error Msg from Site: Invalid site found)
+  clk_IBUF
+    Invalid Programming for Site: ILOGIC_X1Y26 (type: ILOGICE3) (Error Msg from Site: Invalid site found)
+  clk_IBUF_BUFG
+    Invalid Programming for Sites:
+      BUFHCE_X0Y8 (type: BUFHCE) (Error Msg from Site: Invalid site found)
+      BUFHCE_X1Y8 (type: BUFHCE) (Error Msg from Site: Invalid site found)
+  impl_button_counter/led[0]
+    Invalid Programming for Sites:
+      OLOGIC_X0Y3 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+      SLICE_X64Y19 (type: SLICEM) (Error Msg from Site: Invalid site found)
+    Antenna Nodes: CLBLM_R_X41Y19/CLBLM_M_A3
+  impl_button_counter/led[10]
+    Invalid Programming for Sites:
+      OLOGIC_X1Y37 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+      SLICE_X64Y19 (type: SLICEM) (Error Msg from Site: Invalid site found)
+    Antenna Nodes: CLBLM_R_X41Y19/CLBLM_M_B6
+  impl_button_counter/led[11]
+    Invalid Programming for Site: OLOGIC_X1Y32 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+  impl_button_counter/led[12]
+    Invalid Programming for Sites:
+      OLOGIC_X1Y75 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+      SLICE_X64Y19 (type: SLICEM) (Error Msg from Site: Invalid site found)
+    Antenna Nodes: CLBLM_R_X41Y19/CLBLM_M_A2
+  impl_button_counter/led[13]
+    Invalid Programming for Site: OLOGIC_X1Y76 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+  impl_button_counter/led[14]
+    Invalid Programming for Sites:
+      OLOGIC_X1Y61 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
+      SLICE_X64Y19 (type: SLICEM) (Error Msg from Site: Invalid site found)
+    Antenna Nodes: CLBLM_R_X41Y19/CLBLM_M_B2
+  impl_button_counter/led[15]
+    Invalid Programming for Site: OLOGIC_X1Y87 (type: OLOGICE3) (Error Msg from Site: Invalid site found)
 

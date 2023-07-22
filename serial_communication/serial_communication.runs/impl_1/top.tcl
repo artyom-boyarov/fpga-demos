@@ -125,6 +125,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 1
   set_param xicom.use_bs_reader 1
+  set_param runs.launchOptions { -jobs 3  }
   open_checkpoint top_routed.dcp
   set_property webtalk.parent_dir C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.cache/wt [current_project]
 set_property TOP top [current_fileset]

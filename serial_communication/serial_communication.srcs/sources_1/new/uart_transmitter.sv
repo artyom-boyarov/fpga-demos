@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module uart
+module uart_transmitter
     #(parameter DBIT=8,
                 SB_TICK = 8)
 (
@@ -42,7 +42,7 @@ module uart
     logic tx_reg, tx_reg_next;
     
 
-    always_ff @(posedge clk, posedge reset)
+    always_ff @(posedge clk)
         if (reset) begin
             state_reg   <= UART_IDLE;
             sample_reg  <= 0;

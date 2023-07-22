@@ -20,74 +20,54 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module top(
-    input logic clk,
-    input logic[15:0] sw,
-    output logic[15:0] led,
-    input logic btnC, btnU, btnL, btnR, btnD,
-    output logic RsTx,
-    input logic RsRx
+module top
+    (
+        input logic clk,
+        input logic[15:0] sw,
+        output logic[15:0] led,
+        input logic btnC, btnU, btnL, btnR, btnD,
+        output logic RsTx,
+        input logic RsRx
     );
     
     logic reset;
-    logic reset_hit;
     
-    always_ff @(posedge clk) begin
-        case (reset_hit)
-            1'b1: begin
-                reset <= 0;
-                reset_hit <= 1;
-            end
-            1'b0: begin
-                reset <= 1;
-                reset_hit <= 1;
-            end
-            default: begin
-                reset <= 1;
-                reset_hit <= 1;
-            end
-        endcase  
-    end
+    initial_reset impl_initial_reset(
+        .clk(clk), 
+        .reset_out(reset)
+    );
     
     logic tick;
+    logic rx_synced;
     
-    uart impl_uart(clk, reset, btnC, tick, RsTx, sw[7:0]);
-    baud_gen impl_baud_gen(clk, reset, tick);
+    uart_transmitter impl_uart_tx (
+        .clk(clk), 
+        .reset(reset), 
+        .uart_start(btnC), 
+        .s_tick(tick), 
+        .uart_tx(RsTx), 
+        .data(sw[7:0])
+    );
+    
+    baud_gen impl_baud_gen (
+        .clk(clk), 
+        .reset(reset), 
+        .tick(tick)
+    );
+    
+    synchroniser_2stage rx_synchroniser (
+        .clk(clk),
+        .in(RsRx),
+        .out(rx_synced)
+    );
+    
+    uart_receiver impl_uart_receiver (
+        .clk(clk),
+        .reset(reset),
+        .s_tick(tick),
+        .uart_rx(rx_synced),
+        .dout(led[15:8])
+    );
     
     assign led[7:0] = sw[7:0];
-/*
-    typedef enum logic {BUTTON_DEPRESSED, BUTTON_PRESSED} statetype;
-    statetype current_state, next_state;
-    logic uart_next;
-    logic uart_state;
-
-    always_ff @(posedge clk)
-    begin
-        current_state <= next_state;
-        uart_state <= uart_next;
-    end
-
-    always_comb
-        case(current_state)
-            BUTTON_DEPRESSED:
-                if(btnC)  begin
-                    next_state = BUTTON_PRESSED;   uart_next = 1;
-                end
-                else begin
-                    next_state = BUTTON_DEPRESSED; uart_next = 0;
-                end
-            BUTTON_PRESSED:
-                if (btnC) begin
-                    next_state = BUTTON_PRESSED;   uart_next = 0;
-                end
-                else begin
-                    next_state = BUTTON_DEPRESSED; uart_next = 0;
-                end
-            default:
-            begin
-                next_state = BUTTON_DEPRESSED;
-            end
-        endcase
-    assign led = {15'b0, uart_state};
-    */
 endmodule

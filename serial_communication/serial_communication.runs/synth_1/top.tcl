@@ -90,7 +90,9 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/baud_gen.sv
-  C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/uart.sv
+  C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/synchroniser_2stage.sv
+  C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/uart_receiver.sv
+  C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/uart_transmitter.sv
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/top.sv
 }
 OPTRACE "Adding files" END { }
