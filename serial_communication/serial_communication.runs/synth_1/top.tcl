@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -80,6 +78,7 @@ set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.cache/wt [current_project]
 set_property parent.project_path C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.xpr [current_project]
+set_property XPM_LIBRARIES XPM_FIFO [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2022.1/xhub/board_store/xilinx_board_store} [current_project]
@@ -90,6 +89,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/baud_gen.sv
+  C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/initial_reset.sv
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/synchroniser_2stage.sv
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/uart_receiver.sv
   C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/sources_1/new/uart_transmitter.sv

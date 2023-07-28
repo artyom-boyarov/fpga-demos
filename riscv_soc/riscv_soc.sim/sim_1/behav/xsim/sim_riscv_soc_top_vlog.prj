@@ -1,0 +1,20 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/alu.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/branch.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/control.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/datamem.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/imm_gen.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/instruction_memory.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/mmio.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/mmio_control.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/regfile.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_soc_top.sv" \
+"../../../../riscv_soc.srcs/sources_1/new/riscv_cpu_1/riscv_top.sv" \
+"../../../../riscv_soc.srcs/sim_1/new/sim_riscv_soc_top.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

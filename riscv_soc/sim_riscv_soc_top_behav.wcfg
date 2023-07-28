@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sim_riscv_soc_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sim_riscv_soc_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="90 ps"></ZoomStartTime>
+      <ZoomEndTime time="98 ps"></ZoomEndTime>
+      <Cursor1Time time="90 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="203"></NameColumnWidth>
+      <ValueColumnWidth column_width="178"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="73" />
+   <wvobject fp_name="/sim_riscv_soc_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/led" type="array">
+      <obj_property name="ElementShortName">led[15:0]</obj_property>
+      <obj_property name="ObjectShortName">led[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/sw" type="array">
+      <obj_property name="ElementShortName">sw[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x1" type="array">
+      <obj_property name="ElementShortName">x1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x2" type="array">
+      <obj_property name="ElementShortName">x2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x3" type="array">
+      <obj_property name="ElementShortName">x3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x4" type="array">
+      <obj_property name="ElementShortName">x4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x5" type="array">
+      <obj_property name="ElementShortName">x5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/x6" type="array">
+      <obj_property name="ElementShortName">x6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">x6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mmio_addr" type="array">
+      <obj_property name="ElementShortName">mmio_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_addr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mmio_rd_en" type="logic">
+      <obj_property name="ElementShortName">mmio_rd_en</obj_property>
+      <obj_property name="ObjectShortName">mmio_rd_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mmio_wr_en" type="logic">
+      <obj_property name="ElementShortName">mmio_wr_en</obj_property>
+      <obj_property name="ObjectShortName">mmio_wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mmio_wr_data" type="array">
+      <obj_property name="ElementShortName">mmio_wr_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_wr_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mmio_rd_data" type="array">
+      <obj_property name="ElementShortName">mmio_rd_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_rd_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_we" type="logic">
+      <obj_property name="ElementShortName">regfile_we</obj_property>
+      <obj_property name="ObjectShortName">regfile_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_regA" type="array">
+      <obj_property name="ElementShortName">regfile_regA[4:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile_regA[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_regB" type="array">
+      <obj_property name="ElementShortName">regfile_regB[4:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile_regB[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_regW" type="array">
+      <obj_property name="ElementShortName">regfile_regW[4:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile_regW[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/write_back" type="array">
+      <obj_property name="ElementShortName">write_back[31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_back[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_dataA" type="array">
+      <obj_property name="ElementShortName">regfile_dataA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile_dataA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/regfile_dataB" type="array">
+      <obj_property name="ElementShortName">regfile_dataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">regfile_dataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_A_sel" type="logic">
+      <obj_property name="ElementShortName">alu_A_sel</obj_property>
+      <obj_property name="ObjectShortName">alu_A_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_B_sel" type="logic">
+      <obj_property name="ElementShortName">alu_B_sel</obj_property>
+      <obj_property name="ObjectShortName">alu_B_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_sel1" type="logic">
+      <obj_property name="ElementShortName">alu_sel1</obj_property>
+      <obj_property name="ObjectShortName">alu_sel1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_dataA" type="array">
+      <obj_property name="ElementShortName">alu_dataA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_dataA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_dataB" type="array">
+      <obj_property name="ElementShortName">alu_dataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_dataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/alu_result" type="array">
+      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/immediate" type="array">
+      <obj_property name="ElementShortName">immediate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immediate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/aluop" type="array">
+      <obj_property name="ElementShortName">aluop[2:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/branch_taken" type="logic">
+      <obj_property name="ElementShortName">branch_taken</obj_property>
+      <obj_property name="ObjectShortName">branch_taken</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/branch_op" type="array">
+      <obj_property name="ElementShortName">branch_op[2:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_op[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/write_addr" type="array">
+      <obj_property name="ElementShortName">write_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/data" type="array">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/read_addr" type="array">
+      <obj_property name="ElementShortName">read_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem_out" type="array">
+      <obj_property name="ElementShortName">mem_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem0" type="array">
+      <obj_property name="ElementShortName">mem0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem1" type="array">
+      <obj_property name="ElementShortName">mem1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem2" type="array">
+      <obj_property name="ElementShortName">mem2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem3" type="array">
+      <obj_property name="ElementShortName">mem3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem_funct3" type="array">
+      <obj_property name="ElementShortName">mem_funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem_we" type="logic">
+      <obj_property name="ElementShortName">mem_we</obj_property>
+      <obj_property name="ObjectShortName">mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/mem_rd" type="logic">
+      <obj_property name="ElementShortName">mem_rd</obj_property>
+      <obj_property name="ObjectShortName">mem_rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/pc_sel" type="logic">
+      <obj_property name="ElementShortName">pc_sel</obj_property>
+      <obj_property name="ObjectShortName">pc_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/wb_sel" type="array">
+      <obj_property name="ElementShortName">wb_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/imm_sel" type="array">
+      <obj_property name="ElementShortName">imm_sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">imm_sel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/wb_to_pc_sel" type="array">
+      <obj_property name="ElementShortName">wb_to_pc_sel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_to_pc_sel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/branch_data_A" type="array">
+      <obj_property name="ElementShortName">branch_data_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_data_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/branch_data_B" type="array">
+      <obj_property name="ElementShortName">branch_data_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_data_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/pc_next" type="array">
+      <obj_property name="ElementShortName">pc_next[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_next[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/branck_taken" type="logic">
+      <obj_property name="ElementShortName">branck_taken</obj_property>
+      <obj_property name="ObjectShortName">branck_taken</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/WIDTH" type="array">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/INSTR_WIDTH" type="array">
+      <obj_property name="ElementShortName">INSTR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/MEM_WIDTH" type="array">
+      <obj_property name="ElementShortName">MEM_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/REG_WIDTH" type="array">
+      <obj_property name="ElementShortName">REG_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/w_addr" type="array">
+      <obj_property name="ElementShortName">w_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">w_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/data" type="array">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/read_addr" type="array">
+      <obj_property name="ElementShortName">read_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/funct3" type="array">
+      <obj_property name="ElementShortName">funct3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct3[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/we" type="logic">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/rd" type="logic">
+      <obj_property name="ElementShortName">rd</obj_property>
+      <obj_property name="ObjectShortName">rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/mmio_rd_data" type="array">
+      <obj_property name="ElementShortName">mmio_rd_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mmio_rd_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/mem0" type="array">
+      <obj_property name="ElementShortName">mem0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/mem1" type="array">
+      <obj_property name="ElementShortName">mem1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/mem2" type="array">
+      <obj_property name="ElementShortName">mem2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/mem3" type="array">
+      <obj_property name="ElementShortName">mem3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sim_riscv_soc_top/impl_soc/impl_riscv_top/dmem/dmem" type="array">
+      <obj_property name="ElementShortName">dmem[63:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">dmem[63:0][31:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -3,8 +3,8 @@
 # SW Build 3900603 on Fri Jun 16 19:31:24 MDT 2023
 # IP Build 3900379 on Sat Jun 17 05:28:05 MDT 2023
 # SharedData Build 3899622 on Fri Jun 16 03:34:24 MDT 2023
-# Start of session at: Sat Jul 22 13:02:16 2023
-# Process ID: 4456
+# Start of session at: Fri Jul 28 15:01:55 2023
+# Process ID: 2932
 # Current directory: C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.runs/synth_1/top.vds
