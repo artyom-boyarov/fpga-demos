@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="adt7410_i2c_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="adt7410_i2c_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="140.220 ns"></ZoomStartTime>
+      <ZoomEndTime time="717.721 ns"></ZoomEndTime>
+      <Cursor1Time time="620.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="203"></NameColumnWidth>
+      <ValueColumnWidth column_width="178"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/adt7410_i2c_tb/sda_out" type="logic">
+      <obj_property name="ElementShortName">sda_out</obj_property>
+      <obj_property name="ObjectShortName">sda_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/sda_en" type="logic">
+      <obj_property name="ElementShortName">sda_en</obj_property>
+      <obj_property name="ObjectShortName">sda_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/sda_in" type="logic">
+      <obj_property name="ElementShortName">sda_in</obj_property>
+      <obj_property name="ObjectShortName">sda_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/scl_out" type="logic">
+      <obj_property name="ElementShortName">scl_out</obj_property>
+      <obj_property name="ObjectShortName">scl_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/scl_en" type="logic">
+      <obj_property name="ElementShortName">scl_en</obj_property>
+      <obj_property name="ObjectShortName">scl_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/scl_in" type="logic">
+      <obj_property name="ElementShortName">scl_in</obj_property>
+      <obj_property name="ObjectShortName">scl_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/temp_out" type="array">
+      <obj_property name="ElementShortName">temp_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">temp_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/start_trigger" type="logic">
+      <obj_property name="ElementShortName">start_trigger</obj_property>
+      <obj_property name="ObjectShortName">start_trigger</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/finished" type="logic">
+      <obj_property name="ElementShortName">finished</obj_property>
+      <obj_property name="ObjectShortName">finished</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/dut/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/dut/counter" type="array">
+      <obj_property name="ElementShortName">counter[26:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[26:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/dut/device_addr" type="array">
+      <obj_property name="ElementShortName">device_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">device_addr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adt7410_i2c_tb/dut/device_addr_idx" type="array">
+      <obj_property name="ElementShortName">device_addr_idx[3:0]</obj_property>
+      <obj_property name="ObjectShortName">device_addr_idx[3:0]</obj_property>
+   </wvobject>
+</wave_config>

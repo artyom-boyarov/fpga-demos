@@ -10,38 +10,38 @@ create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_
 
 
 ### Switches
-#set_property PACKAGE_PIN V17 [get_ports {sw[0]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
-#set_property PACKAGE_PIN V16 [get_ports {sw[1]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[1]}]
-#set_property PACKAGE_PIN W16 [get_ports {sw[2]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[2]}]
-#set_property PACKAGE_PIN W17 [get_ports {sw[3]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[3]}]
-#set_property PACKAGE_PIN W15 [get_ports {sw[4]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[4]}]
-#set_property PACKAGE_PIN V15 [get_ports {sw[5]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[5]}]
-#set_property PACKAGE_PIN W14 [get_ports {sw[6]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[6]}]
-#set_property PACKAGE_PIN W13 [get_ports {sw[7]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[7]}]
-#set_property PACKAGE_PIN V2 [get_ports {sw[8]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[8]}]
-#set_property PACKAGE_PIN T3 [get_ports {sw[9]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[9]}]
-#set_property PACKAGE_PIN T2 [get_ports {sw[10]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[10]}]
-#set_property PACKAGE_PIN R3 [get_ports {sw[11]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[11]}]
-#set_property PACKAGE_PIN W2 [get_ports {sw[12]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[12]}]
-#set_property PACKAGE_PIN U1 [get_ports {sw[13]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[13]}]
-#set_property PACKAGE_PIN T1 [get_ports {sw[14]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[14]}]
-#set_property PACKAGE_PIN R2 [get_ports {sw[15]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
+set_property PACKAGE_PIN V17 [get_ports {sw[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[0]}]
+set_property PACKAGE_PIN V16 [get_ports {sw[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[1]}]
+set_property PACKAGE_PIN W16 [get_ports {sw[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[2]}]
+set_property PACKAGE_PIN W17 [get_ports {sw[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[3]}]
+set_property PACKAGE_PIN W15 [get_ports {sw[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[4]}]
+set_property PACKAGE_PIN V15 [get_ports {sw[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[5]}]
+set_property PACKAGE_PIN W14 [get_ports {sw[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[6]}]
+set_property PACKAGE_PIN W13 [get_ports {sw[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[7]}]
+set_property PACKAGE_PIN V2 [get_ports {sw[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[8]}]
+set_property PACKAGE_PIN T3 [get_ports {sw[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[9]}]
+set_property PACKAGE_PIN T2 [get_ports {sw[10]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[10]}]
+set_property PACKAGE_PIN R3 [get_ports {sw[11]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[11]}]
+set_property PACKAGE_PIN W2 [get_ports {sw[12]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[12]}]
+set_property PACKAGE_PIN U1 [get_ports {sw[13]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[13]}]
+set_property PACKAGE_PIN T1 [get_ports {sw[14]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[14]}]
+set_property PACKAGE_PIN R2 [get_ports {sw[15]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
 
 
 ### LEDs
@@ -105,24 +105,27 @@ set_property IOSTANDARD LVCMOS33 [get_ports {an[2]}]
 set_property PACKAGE_PIN W4 [get_ports {an[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {an[3]}]
 
+set_property PACKAGE_PIN V7 [get_ports dp]
+set_property IOSTANDARD LVCMOS33 [get_ports dp]
+
 
 ###Buttons
 ## 0 = up, 1 = down, 2 = left, 3 = right, 4 = center
 ## Up
-#set_property PACKAGE_PIN T18 [get_ports buttons[0]] 
+#set_property PACKAGE_PIN T18 [get_ports buttons[0]]
 #set_property IOSTANDARD LVCMOS33 [get_ports buttons[0]]
 ## Down
-#set_property PACKAGE_PIN U17 [get_ports buttons[1]] 
+#set_property PACKAGE_PIN U17 [get_ports buttons[1]]
 #set_property IOSTANDARD LVCMOS33 [get_ports buttons[1]]
 ## Left
 #set_property PACKAGE_PIN W19 [get_ports buttons[2]]
 #set_property IOSTANDARD LVCMOS33 [get_ports buttons[2]]
 ## Right
-#set_property PACKAGE_PIN T17 [get_ports buttons[3]] 
+#set_property PACKAGE_PIN T17 [get_ports buttons[3]]
 #set_property IOSTANDARD LVCMOS33 [get_ports buttons[3]]
-## Center
-#set_property PACKAGE_PIN U18 [get_ports buttons[4]] 
-#set_property IOSTANDARD LVCMOS33 [get_ports buttons[4]]
+# Center
+set_property PACKAGE_PIN U18 [get_ports btnC]
+set_property IOSTANDARD LVCMOS33 [get_ports btnC]
 
 ##Pmod Header JA
 ##Sch name = JA1
@@ -134,12 +137,13 @@ set_property IOSTANDARD LVCMOS33 [get_ports {an[3]}]
 ##Sch name = JA3
 #set_property PACKAGE_PIN J2 [get_ports {JA[2]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {JA[2]}]
-#Sch name = JA4
+
+#Sch name = JA7
 # SCL
-set_property PACKAGE_PIN G2 [get_ports {I2C_SCL}]
-set_property IOSTANDARD LVCMOS33 [get_ports {I2C_SCL}]
-##Sch name = JA7
-#set_property PACKAGE_PIN H1 [get_ports {JA[4]}]
+set_property PACKAGE_PIN H1 [get_ports I2C_SCL]
+set_property IOSTANDARD LVCMOS33 [get_ports I2C_SCL]
+##Sch name = JA4
+#set_property PACKAGE_PIN G2 [get_ports {JA[4]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {JA[4]}]
 ##Sch name = JA8
 #set_property PACKAGE_PIN K2 [get_ports {JA[5]}]
@@ -147,11 +151,12 @@ set_property IOSTANDARD LVCMOS33 [get_ports {I2C_SCL}]
 ##Sch name = JA9
 #set_property PACKAGE_PIN H2 [get_ports {JA[6]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {JA[6]}]
+
 #Sch name = JA10
 # SDA
-set_property PACKAGE_PIN G3 [get_ports {I2C_SDA}]
-set_property IOSTANDARD LVCMOS33 [get_ports {I2C_SDA}]
-
+set_property PACKAGE_PIN G3 [get_ports I2C_SDA]
+set_property IOSTANDARD LVCMOS33 [get_ports I2C_SDA]
+set_property PULLUP true [get_ports I2C_SCL]
 
 
 ##Pmod Header JB
@@ -303,3 +308,62 @@ set_property IOSTANDARD LVCMOS33 [get_ports {I2C_SDA}]
 #set_property BITSTREAM.CONFIG.CONFIGRATE 33 [current_design]
 #set_property CONFIG_MODE SPIx4 [current_design]
 
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list clk_IBUF_BUFG]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 27 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {impl_adt7410_i2c/counter[0]} {impl_adt7410_i2c/counter[1]} {impl_adt7410_i2c/counter[2]} {impl_adt7410_i2c/counter[3]} {impl_adt7410_i2c/counter[4]} {impl_adt7410_i2c/counter[5]} {impl_adt7410_i2c/counter[6]} {impl_adt7410_i2c/counter[7]} {impl_adt7410_i2c/counter[8]} {impl_adt7410_i2c/counter[9]} {impl_adt7410_i2c/counter[10]} {impl_adt7410_i2c/counter[11]} {impl_adt7410_i2c/counter[12]} {impl_adt7410_i2c/counter[13]} {impl_adt7410_i2c/counter[14]} {impl_adt7410_i2c/counter[15]} {impl_adt7410_i2c/counter[16]} {impl_adt7410_i2c/counter[17]} {impl_adt7410_i2c/counter[18]} {impl_adt7410_i2c/counter[19]} {impl_adt7410_i2c/counter[20]} {impl_adt7410_i2c/counter[21]} {impl_adt7410_i2c/counter[22]} {impl_adt7410_i2c/counter[23]} {impl_adt7410_i2c/counter[24]} {impl_adt7410_i2c/counter[25]} {impl_adt7410_i2c/counter[26]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 8 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {impl_adt7410_i2c/device_addr[0]} {impl_adt7410_i2c/device_addr[1]} {impl_adt7410_i2c/device_addr[2]} {impl_adt7410_i2c/device_addr[3]} {impl_adt7410_i2c/device_addr[4]} {impl_adt7410_i2c/device_addr[5]} {impl_adt7410_i2c/device_addr[6]} {impl_adt7410_i2c/device_addr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 4 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {impl_adt7410_i2c/device_addr_idx[0]} {impl_adt7410_i2c/device_addr_idx[1]} {impl_adt7410_i2c/device_addr_idx[2]} {impl_adt7410_i2c/device_addr_idx[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 4 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {impl_adt7410_i2c/num_temp_bits_read[0]} {impl_adt7410_i2c/num_temp_bits_read[1]} {impl_adt7410_i2c/num_temp_bits_read[2]} {impl_adt7410_i2c/num_temp_bits_read[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {impl_adt7410_i2c/reg_addr[0]} {impl_adt7410_i2c/reg_addr[1]} {impl_adt7410_i2c/reg_addr[2]} {impl_adt7410_i2c/reg_addr[3]} {impl_adt7410_i2c/reg_addr[4]} {impl_adt7410_i2c/reg_addr[5]} {impl_adt7410_i2c/reg_addr[6]} {impl_adt7410_i2c/reg_addr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 32 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {impl_adt7410_i2c/state[0]} {impl_adt7410_i2c/state[1]} {impl_adt7410_i2c/state[2]} {impl_adt7410_i2c/state[3]} {impl_adt7410_i2c/state[4]} {impl_adt7410_i2c/state[5]} {impl_adt7410_i2c/state[6]} {impl_adt7410_i2c/state[7]} {impl_adt7410_i2c/state[8]} {impl_adt7410_i2c/state[9]} {impl_adt7410_i2c/state[10]} {impl_adt7410_i2c/state[11]} {impl_adt7410_i2c/state[12]} {impl_adt7410_i2c/state[13]} {impl_adt7410_i2c/state[14]} {impl_adt7410_i2c/state[15]} {impl_adt7410_i2c/state[16]} {impl_adt7410_i2c/state[17]} {impl_adt7410_i2c/state[18]} {impl_adt7410_i2c/state[19]} {impl_adt7410_i2c/state[20]} {impl_adt7410_i2c/state[21]} {impl_adt7410_i2c/state[22]} {impl_adt7410_i2c/state[23]} {impl_adt7410_i2c/state[24]} {impl_adt7410_i2c/state[25]} {impl_adt7410_i2c/state[26]} {impl_adt7410_i2c/state[27]} {impl_adt7410_i2c/state[28]} {impl_adt7410_i2c/state[29]} {impl_adt7410_i2c/state[30]} {impl_adt7410_i2c/state[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 4 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {impl_adt7410_i2c/reg_addr_idx[0]} {impl_adt7410_i2c/reg_addr_idx[1]} {impl_adt7410_i2c/reg_addr_idx[2]} {impl_adt7410_i2c/reg_addr_idx[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 16 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {impl_adt7410_i2c/temp_data_in[0]} {impl_adt7410_i2c/temp_data_in[1]} {impl_adt7410_i2c/temp_data_in[2]} {impl_adt7410_i2c/temp_data_in[3]} {impl_adt7410_i2c/temp_data_in[4]} {impl_adt7410_i2c/temp_data_in[5]} {impl_adt7410_i2c/temp_data_in[6]} {impl_adt7410_i2c/temp_data_in[7]} {impl_adt7410_i2c/temp_data_in[8]} {impl_adt7410_i2c/temp_data_in[9]} {impl_adt7410_i2c/temp_data_in[10]} {impl_adt7410_i2c/temp_data_in[11]} {impl_adt7410_i2c/temp_data_in[12]} {impl_adt7410_i2c/temp_data_in[13]} {impl_adt7410_i2c/temp_data_in[14]} {impl_adt7410_i2c/temp_data_in[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list scl_out]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list sda_en]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 1 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list sda_out]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk_IBUF_BUFG]
