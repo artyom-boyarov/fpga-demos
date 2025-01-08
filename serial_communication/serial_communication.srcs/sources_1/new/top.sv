@@ -39,14 +39,21 @@ module top
     
     logic tick;
     logic rx_synced;
+    logic btnCOneHigh;
     
     uart_transmitter impl_uart_tx (
         .clk(clk), 
         .reset(reset), 
-        .uart_start(btnC), 
+        .uart_start(btnCOneHigh), 
         .s_tick(tick), 
         .uart_tx(RsTx), 
         .data(sw[7:0])
+    );
+    
+    button_one_high impl_btnC_one_high (
+        .in(btnC),
+        .out(btnCOneHigh),
+        .clk(clk)
     );
     
     baud_gen impl_baud_gen (

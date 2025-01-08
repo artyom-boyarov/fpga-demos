@@ -32,10 +32,6 @@ module top(
     output logic vga_vsync
     );
     
-    // 25.2 MHz Clock
-    logic clk_25mhz;
-    
-    clk_wiz_0 clk_wiz(clk_25mhz, clk);
     
     // VGA counting unit
     logic[9:0] pos_x;
@@ -43,6 +39,11 @@ module top(
     logic[18:0] mem_idx;
     logic hsync_s1, hsync_s2, vsync_s1, vsync_s2;
     logic de_s1, de_s2;
+    
+    clk_wiz_0 impl_clk25mhz(
+        .clk_in1(clk),
+        .clk_out1(clk_25mhz)
+    );
     
     vga_counter impl_vga_counter (
         clk_25mhz,

@@ -3,7 +3,7 @@
   "ip_inst": {
     "xci_name": "xadc_wiz_0",
     "component_reference": "xilinx.com:ip:xadc_wiz:3.3",
-    "ip_revision": "8",
+    "ip_revision": "11",
     "gen_directory": "../../../../light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0",
     "parameters": {
       "component_parameters": {
@@ -263,12 +263,12 @@
       },
       "runtime_parameters": {
         "IPCONTEXT": [ { "value": "IP_Flow" } ],
-        "IPREVISION": [ { "value": "8" } ],
+        "IPREVISION": [ { "value": "11" } ],
         "MANAGED": [ { "value": "TRUE" } ],
         "OUTPUTDIR": [ { "value": "../../../../light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
-        "SWVERSION": [ { "value": "2023.1.1" } ],
+        "SWVERSION": [ { "value": "2024.2" } ],
         "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
       }
     },

@@ -33,10 +33,16 @@ module top(
     );    
 
     logic[15:0] displayed_number;
+    
+    logic btnCSynced, btnUSynced, btnDSynced, btnLSynced, btnRSynced;
 
     BUTTON_COUNTER button_counter (
         clk,
-        btnC, btnL, btnR, btnU, btnD,
+        btnCSynced,
+        btnLSynced, 
+        btnRSynced, 
+        btnUSynced,
+        btnDSynced,
         displayed_number
     );
     
@@ -45,6 +51,36 @@ module top(
         displayed_number,
         seg,
         an
+    );
+    
+    two_stage_sync btnC_sync (
+        btnC,
+        btnCSynced,
+        clk
+    );
+    
+    two_stage_sync btnU_sync (
+        btnU,
+        btnUSynced,
+        clk
+    );
+    
+    two_stage_sync btnD_sync (
+        btnD,
+        btnDSynced,
+        clk
+    );
+    
+    two_stage_sync btnL_sync (
+        btnL,
+        btnLSynced,
+        clk
+    );
+    
+    two_stage_sync btnR_sync (
+        btnR,
+        btnRSynced,
+        clk
     );
 
     assign led = displayed_number;

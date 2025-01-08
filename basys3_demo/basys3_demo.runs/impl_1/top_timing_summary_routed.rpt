@@ -1,12 +1,13 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Sun Jan 22 13:45:23 2023
-| Host         : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan  8 09:36:05 2025
+| Host         : artyom-hp running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation
 | Design       : top
 | Device       : 7a35t-cpg236
 | Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Summary Report
@@ -26,6 +27,7 @@ Timing Summary Report
   Timing Early Launch at Borrowing Latches   :  No
   Borrow Time for Max Delay Exceptions       :  Yes
   Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
 
   Corner  Analyze    Analyze    
   Name    Max Paths  Min Paths  
@@ -41,7 +43,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  37          
+TIMING-17  Critical Warning  Non-clocked sequential cell  49          
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -51,11 +53,11 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (37)
+1. checking no_clock (49)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (53)
-5. checking no_input_delay (1)
+4. checking unconstrained_internal_endpoints (65)
+5. checking no_input_delay (3)
 6. checking no_output_delay (27)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
@@ -64,9 +66,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (37)
+1. checking no_clock (49)
 -------------------------
- There are 37 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 49 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -79,16 +81,16 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (53)
+4. checking unconstrained_internal_endpoints (65)
 -------------------------------------------------
- There are 53 pins that are not constrained for maximum delay. (HIGH)
+ There are 65 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (1)
+5. checking no_input_delay (3)
 ------------------------------
- There is 1 input port with no input delay specified. (HIGH)
+ There are 3 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -140,7 +142,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                   80          inf        0.000                      0                   80           NA           NA                      NA                    NA  
+        inf        0.000                      0                   92          inf        0.000                      0                   92           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -209,155 +211,179 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay            80 Endpoints
-Min Delay            80 Endpoints
+Max Delay            92 Endpoints
+Min Delay            92 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[15]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
                             (rising edge-triggered cell FDRE)
   Destination:            seg[0]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.983ns  (logic 4.527ns (50.400%)  route 4.456ns (49.600%))
+  Data Path Delay:        9.572ns  (logic 4.525ns (47.280%)  route 5.046ns (52.720%))
   Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y24         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[15]/C
-    SLICE_X64Y24         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[15]/Q
-                         net (fo=3, routed)           1.457     1.975    button_counter/led_OBUF[15]
-    SLICE_X63Y22         LUT6 (Prop_lut6_I2_O)        0.124     2.099 r  button_counter/seg_OBUF[6]_inst_i_2/O
-                         net (fo=7, routed)           1.121     3.220    button_counter/seven_seg_controller/LED_IN__31[3]
-    SLICE_X64Y19         LUT4 (Prop_lut4_I0_O)        0.150     3.370 r  button_counter/seg_OBUF[0]_inst_i_1/O
-                         net (fo=1, routed)           1.878     5.248    seg_OBUF[0]
-    U7                   OBUF (Prop_obuf_I_O)         3.735     8.983 r  seg_OBUF[0]_inst/O
-                         net (fo=0)                   0.000     8.983    seg[0]
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.068     3.623    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.150     3.773 r  button_counter/seg_OBUF[0]_inst_i_1/O
+                         net (fo=1, routed)           2.065     5.838    seg_OBUF[0]
+    U7                   OBUF (Prop_obuf_I_O)         3.733     9.572 r  seg_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     9.572    seg[0]
     U7                                                                r  seg[0] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[1]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            seg[6]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.953ns  (logic 4.277ns (47.767%)  route 4.677ns (52.233%))
-  Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X64Y21         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[1]/C
-    SLICE_X64Y21         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[1]/Q
-                         net (fo=3, routed)           1.572     2.090    button_counter/led_OBUF[1]
-    SLICE_X65Y24         LUT6 (Prop_lut6_I1_O)        0.124     2.214 r  button_counter/seg_OBUF[6]_inst_i_5/O
-                         net (fo=7, routed)           1.204     3.418    button_counter/seven_seg_controller/LED_IN__31[1]
-    SLICE_X64Y20         LUT4 (Prop_lut4_I3_O)        0.124     3.542 r  button_counter/seg_OBUF[6]_inst_i_1/O
-                         net (fo=1, routed)           1.900     5.443    seg_OBUF[6]
-    W7                   OBUF (Prop_obuf_I_O)         3.511     8.953 r  seg_OBUF[6]_inst/O
-                         net (fo=0)                   0.000     8.953    seg[6]
-    W7                                                                r  seg[6] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[1]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
                             (rising edge-triggered cell FDRE)
   Destination:            seg[5]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.939ns  (logic 4.523ns (50.602%)  route 4.416ns (49.398%))
+  Data Path Delay:        9.493ns  (logic 4.528ns (47.699%)  route 4.965ns (52.301%))
   Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y21         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[1]/C
-    SLICE_X64Y21         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[1]/Q
-                         net (fo=3, routed)           1.572     2.090    button_counter/led_OBUF[1]
-    SLICE_X65Y24         LUT6 (Prop_lut6_I1_O)        0.124     2.214 r  button_counter/seg_OBUF[6]_inst_i_5/O
-                         net (fo=7, routed)           1.036     3.250    button_counter/seven_seg_controller/LED_IN__31[1]
-    SLICE_X64Y20         LUT4 (Prop_lut4_I3_O)        0.148     3.398 r  button_counter/seg_OBUF[5]_inst_i_1/O
-                         net (fo=1, routed)           1.807     5.206    seg_OBUF[5]
-    W6                   OBUF (Prop_obuf_I_O)         3.733     8.939 r  seg_OBUF[5]_inst/O
-                         net (fo=0)                   0.000     8.939    seg[5]
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.241     3.796    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.154     3.950 r  button_counter/seg_OBUF[5]_inst_i_1/O
+                         net (fo=1, routed)           1.811     5.761    seg_OBUF[5]
+    W6                   OBUF (Prop_obuf_I_O)         3.732     9.493 r  seg_OBUF[5]_inst/O
+                         net (fo=0)                   0.000     9.493    seg[5]
     W6                                                                r  seg[5] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[15]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
                             (rising edge-triggered cell FDRE)
   Destination:            seg[3]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.930ns  (logic 4.554ns (50.990%)  route 4.377ns (49.010%))
+  Data Path Delay:        9.186ns  (logic 4.538ns (49.394%)  route 4.649ns (50.606%))
   Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y24         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[15]/C
-    SLICE_X64Y24         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[15]/Q
-                         net (fo=3, routed)           1.457     1.975    button_counter/led_OBUF[15]
-    SLICE_X63Y22         LUT6 (Prop_lut6_I2_O)        0.124     2.099 r  button_counter/seg_OBUF[6]_inst_i_2/O
-                         net (fo=7, routed)           1.111     3.210    button_counter/seven_seg_controller/LED_IN__31[3]
-    SLICE_X64Y19         LUT4 (Prop_lut4_I0_O)        0.152     3.362 r  button_counter/seg_OBUF[3]_inst_i_1/O
-                         net (fo=1, routed)           1.809     5.171    seg_OBUF[3]
-    V8                   OBUF (Prop_obuf_I_O)         3.760     8.930 r  seg_OBUF[3]_inst/O
-                         net (fo=0)                   0.000     8.930    seg[3]
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.073     3.628    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.152     3.780 r  button_counter/seg_OBUF[3]_inst_i_1/O
+                         net (fo=1, routed)           1.663     5.443    seg_OBUF[3]
+    V8                   OBUF (Prop_obuf_I_O)         3.744     9.186 r  seg_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     9.186    seg[3]
     V8                                                                r  seg[3] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[1]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
                             (rising edge-triggered cell FDRE)
   Destination:            seg[4]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.717ns  (logic 4.301ns (49.342%)  route 4.416ns (50.658%))
+  Data Path Delay:        9.126ns  (logic 4.301ns (47.132%)  route 4.825ns (52.868%))
   Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y21         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[1]/C
-    SLICE_X64Y21         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[1]/Q
-                         net (fo=3, routed)           1.572     2.090    button_counter/led_OBUF[1]
-    SLICE_X65Y24         LUT6 (Prop_lut6_I1_O)        0.124     2.214 r  button_counter/seg_OBUF[6]_inst_i_5/O
-                         net (fo=7, routed)           1.036     3.250    button_counter/seven_seg_controller/LED_IN__31[1]
-    SLICE_X64Y20         LUT4 (Prop_lut4_I2_O)        0.124     3.374 r  button_counter/seg_OBUF[4]_inst_i_1/O
-                         net (fo=1, routed)           1.808     5.182    seg_OBUF[4]
-    U8                   OBUF (Prop_obuf_I_O)         3.535     8.717 r  seg_OBUF[4]_inst/O
-                         net (fo=0)                   0.000     8.717    seg[4]
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.241     3.796    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.124     3.920 r  button_counter/seg_OBUF[4]_inst_i_1/O
+                         net (fo=1, routed)           1.670     5.591    seg_OBUF[4]
+    U8                   OBUF (Prop_obuf_I_O)         3.535     9.126 r  seg_OBUF[4]_inst/O
+                         net (fo=0)                   0.000     9.126    seg[4]
     U8                                                                r  seg[4] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[15]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            seg[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.986ns  (logic 4.286ns (47.693%)  route 4.700ns (52.307%))
+  Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 f  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.073     3.628    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.124     3.752 r  button_counter/seg_OBUF[2]_inst_i_1/O
+                         net (fo=1, routed)           1.714     5.466    seg_OBUF[2]
+    U5                   OBUF (Prop_obuf_I_O)         3.520     8.986 r  seg_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     8.986    seg[2]
+    U5                                                                r  seg[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
                             (rising edge-triggered cell FDRE)
   Destination:            seg[1]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.658ns  (logic 4.270ns (49.322%)  route 4.388ns (50.678%))
+  Data Path Delay:        8.963ns  (logic 4.270ns (47.647%)  route 4.692ns (52.353%))
   Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y24         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[15]/C
-    SLICE_X64Y24         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[15]/Q
-                         net (fo=3, routed)           1.457     1.975    button_counter/led_OBUF[15]
-    SLICE_X63Y22         LUT6 (Prop_lut6_I2_O)        0.124     2.099 r  button_counter/seg_OBUF[6]_inst_i_2/O
-                         net (fo=7, routed)           1.121     3.220    button_counter/seven_seg_controller/LED_IN__31[3]
-    SLICE_X64Y19         LUT4 (Prop_lut4_I0_O)        0.124     3.344 r  button_counter/seg_OBUF[1]_inst_i_1/O
-                         net (fo=1, routed)           1.810     5.154    seg_OBUF[1]
-    V5                   OBUF (Prop_obuf_I_O)         3.504     8.658 r  seg_OBUF[1]_inst/O
-                         net (fo=0)                   0.000     8.658    seg[1]
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           1.068     3.623    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y21         LUT4 (Prop_lut4_I0_O)        0.124     3.747 r  button_counter/seg_OBUF[1]_inst_i_1/O
+                         net (fo=1, routed)           1.711     5.458    seg_OBUF[1]
+    V5                   OBUF (Prop_obuf_I_O)         3.504     8.963 r  seg_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     8.963    seg[1]
     V5                                                                r  seg[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[19]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            seg[6]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.906ns  (logic 4.277ns (48.019%)  route 4.630ns (51.981%))
+  Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X64Y25         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[19]/C
+    SLICE_X64Y25         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  seven_seg_controller/seg_refresh_counter_reg[19]/Q
+                         net (fo=9, routed)           1.913     2.431    button_counter/LED_activate_counter[1]
+    SLICE_X54Y22         LUT6 (Prop_lut6_I3_O)        0.124     2.555 r  button_counter/seg_OBUF[6]_inst_i_2/O
+                         net (fo=7, routed)           0.910     3.465    button_counter/seven_seg_controller/LED_IN__31[3]
+    SLICE_X65Y22         LUT4 (Prop_lut4_I0_O)        0.124     3.589 r  button_counter/seg_OBUF[6]_inst_i_1/O
+                         net (fo=1, routed)           1.807     5.396    seg_OBUF[6]
+    W7                   OBUF (Prop_obuf_I_O)         3.511     8.906 r  seg_OBUF[6]_inst/O
+                         net (fo=0)                   0.000     8.906    seg[6]
+    W7                                                                r  seg[6] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -367,81 +393,57 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.522ns  (logic 4.048ns (47.497%)  route 4.474ns (52.503%))
+  Data Path Delay:        7.971ns  (logic 3.986ns (50.003%)  route 3.985ns (49.997%))
   Logic Levels:           2  (FDRE=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y21         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[1]/C
-    SLICE_X64Y21         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[1]/Q
-                         net (fo=3, routed)           4.474     4.992    led_OBUF[1]
-    E19                  OBUF (Prop_obuf_I_O)         3.530     8.522 r  led_OBUF[1]_inst/O
-                         net (fo=0)                   0.000     8.522    led[1]
+    SLICE_X55Y21         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[1]/C
+    SLICE_X55Y21         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  button_counter/displayed_number_reg[1]/Q
+                         net (fo=3, routed)           3.985     4.441    led_OBUF[1]
+    E19                  OBUF (Prop_obuf_I_O)         3.530     7.971 r  led_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     7.971    led[1]
     E19                                                               r  led[1] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
   Source:                 button_counter/displayed_number_reg[15]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seg[2]
+  Destination:            led[15]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.521ns  (logic 4.286ns (50.300%)  route 4.235ns (49.700%))
-  Logic Levels:           4  (FDRE=1 LUT4=1 LUT6=1 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X64Y24         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[15]/C
-    SLICE_X64Y24         FDRE (Prop_fdre_C_Q)         0.518     0.518 f  button_counter/displayed_number_reg[15]/Q
-                         net (fo=3, routed)           1.457     1.975    button_counter/led_OBUF[15]
-    SLICE_X63Y22         LUT6 (Prop_lut6_I2_O)        0.124     2.099 f  button_counter/seg_OBUF[6]_inst_i_2/O
-                         net (fo=7, routed)           1.111     3.210    button_counter/seven_seg_controller/LED_IN__31[3]
-    SLICE_X64Y19         LUT4 (Prop_lut4_I0_O)        0.124     3.334 r  button_counter/seg_OBUF[2]_inst_i_1/O
-                         net (fo=1, routed)           1.667     5.001    seg_OBUF[2]
-    U5                   OBUF (Prop_obuf_I_O)         3.520     8.521 r  seg_OBUF[2]_inst/O
-                         net (fo=0)                   0.000     8.521    seg[2]
-    U5                                                                r  seg[2] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[7]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            led[7]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.507ns  (logic 4.019ns (47.240%)  route 4.488ns (52.760%))
+  Data Path Delay:        7.933ns  (logic 3.977ns (50.137%)  route 3.956ns (49.863%))
   Logic Levels:           2  (FDRE=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y22         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[7]/C
-    SLICE_X64Y22         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[7]/Q
-                         net (fo=3, routed)           4.488     5.006    led_OBUF[7]
-    V14                  OBUF (Prop_obuf_I_O)         3.501     8.507 r  led_OBUF[7]_inst/O
-                         net (fo=0)                   0.000     8.507    led[7]
-    V14                                                               r  led[7] (OUT)
+    SLICE_X55Y24         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[15]/C
+    SLICE_X55Y24         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  button_counter/displayed_number_reg[15]/Q
+                         net (fo=3, routed)           3.956     4.412    led_OBUF[15]
+    L1                   OBUF (Prop_obuf_I_O)         3.521     7.933 r  led_OBUF[15]_inst/O
+                         net (fo=0)                   0.000     7.933    led[15]
+    L1                                                                r  led[15] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 button_counter/displayed_number_reg[5]/C
+  Source:                 button_counter/displayed_number_reg[6]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            led[5]
+  Destination:            led[6]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.452ns  (logic 4.032ns (47.710%)  route 4.420ns (52.290%))
+  Data Path Delay:        7.826ns  (logic 3.962ns (50.625%)  route 3.864ns (49.375%))
   Logic Levels:           2  (FDRE=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X64Y22         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[5]/C
-    SLICE_X64Y22         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  button_counter/displayed_number_reg[5]/Q
-                         net (fo=3, routed)           4.420     4.938    led_OBUF[5]
-    U15                  OBUF (Prop_obuf_I_O)         3.514     8.452 r  led_OBUF[5]_inst/O
-                         net (fo=0)                   0.000     8.452    led[5]
-    U15                                                               r  led[5] (OUT)
+    SLICE_X55Y22         FDRE                         0.000     0.000 r  button_counter/displayed_number_reg[6]/C
+    SLICE_X55Y22         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  button_counter/displayed_number_reg[6]/Q
+                         net (fo=3, routed)           3.864     4.320    led_OBUF[6]
+    U14                  OBUF (Prop_obuf_I_O)         3.506     7.826 r  led_OBUF[6]_inst/O
+                         net (fo=0)                   0.000     7.826    led[6]
+    U14                                                               r  led[6] (OUT)
   -------------------------------------------------------------------    -------------------
 
 
@@ -451,163 +453,147 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[11]/C
+  Source:                 btnD_sync/sync_reg_reg[3]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[11]/D
+  Destination:            button_counter/FSM_sequential_btn_state_reg/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.357ns  (logic 0.249ns (69.714%)  route 0.108ns (30.286%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.244ns  (logic 0.186ns (76.078%)  route 0.058ns (23.922%))
+  Logic Levels:           2  (FDRE=1 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y21         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[11]/C
-    SLICE_X65Y21         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[11]/Q
-                         net (fo=1, routed)           0.108     0.249    seven_seg_controller/seg_refresh_counter_reg_n_0_[11]
-    SLICE_X65Y21         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.357 r  seven_seg_controller/seg_refresh_counter_reg[8]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.357    seven_seg_controller/seg_refresh_counter_reg[8]_i_1_n_4
-    SLICE_X65Y21         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[11]/D
+    SLICE_X1Y16          FDRE                         0.000     0.000 r  btnD_sync/sync_reg_reg[3]/C
+    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     0.141 f  btnD_sync/sync_reg_reg[3]/Q
+                         net (fo=1, routed)           0.058     0.199    btnU_sync/Q[1]
+    SLICE_X0Y16          LUT5 (Prop_lut5_I4_O)        0.045     0.244 r  btnU_sync/FSM_sequential_btn_state_i_1/O
+                         net (fo=1, routed)           0.000     0.244    button_counter/btn_state
+    SLICE_X0Y16          FDRE                                         r  button_counter/FSM_sequential_btn_state_reg/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[15]/C
+  Source:                 btnU_sync/sync_reg_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[15]/D
+  Destination:            btnU_sync/sync_reg_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.357ns  (logic 0.249ns (69.714%)  route 0.108ns (30.286%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.247ns  (logic 0.128ns (51.736%)  route 0.119ns (48.264%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y22         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[15]/C
-    SLICE_X65Y22         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[15]/Q
-                         net (fo=1, routed)           0.108     0.249    seven_seg_controller/seg_refresh_counter_reg_n_0_[15]
-    SLICE_X65Y22         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.357 r  seven_seg_controller/seg_refresh_counter_reg[12]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.357    seven_seg_controller/seg_refresh_counter_reg[12]_i_1_n_4
-    SLICE_X65Y22         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[15]/D
+    SLICE_X0Y16          FDRE                         0.000     0.000 r  btnU_sync/sync_reg_reg[1]/C
+    SLICE_X0Y16          FDRE (Prop_fdre_C_Q)         0.128     0.128 r  btnU_sync/sync_reg_reg[1]/Q
+                         net (fo=1, routed)           0.119     0.247    btnU_sync/sync_reg_reg_n_0_[1]
+    SLICE_X0Y16          FDRE                                         r  btnU_sync/sync_reg_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[3]/C
+  Source:                 btnD_sync/sync_reg_reg[0]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[3]/D
+  Destination:            btnD_sync/sync_reg_reg[1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.357ns  (logic 0.249ns (69.714%)  route 0.108ns (30.286%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.257ns  (logic 0.141ns (54.953%)  route 0.116ns (45.047%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y19         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[3]/C
-    SLICE_X65Y19         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[3]/Q
-                         net (fo=1, routed)           0.108     0.249    seven_seg_controller/seg_refresh_counter_reg_n_0_[3]
-    SLICE_X65Y19         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.357 r  seven_seg_controller/seg_refresh_counter_reg[0]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.357    seven_seg_controller/seg_refresh_counter_reg[0]_i_1_n_4
-    SLICE_X65Y19         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[3]/D
+    SLICE_X0Y15          FDRE                         0.000     0.000 r  btnD_sync/sync_reg_reg[0]/C
+    SLICE_X0Y15          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnD_sync/sync_reg_reg[0]/Q
+                         net (fo=1, routed)           0.116     0.257    btnD_sync/sync_reg_reg_n_0_[0]
+    SLICE_X1Y16          FDRE                                         r  btnD_sync/sync_reg_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[7]/C
+  Source:                 btnD_sync/sync_reg_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[7]/D
+  Destination:            btnD_sync/sync_reg_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.357ns  (logic 0.249ns (69.714%)  route 0.108ns (30.286%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.311ns  (logic 0.141ns (45.298%)  route 0.170ns (54.702%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y20         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[7]/C
-    SLICE_X65Y20         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[7]/Q
-                         net (fo=1, routed)           0.108     0.249    seven_seg_controller/seg_refresh_counter_reg_n_0_[7]
-    SLICE_X65Y20         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     0.357 r  seven_seg_controller/seg_refresh_counter_reg[4]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.357    seven_seg_controller/seg_refresh_counter_reg[4]_i_1_n_4
-    SLICE_X65Y20         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[7]/D
+    SLICE_X1Y16          FDRE                         0.000     0.000 r  btnD_sync/sync_reg_reg[1]/C
+    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnD_sync/sync_reg_reg[1]/Q
+                         net (fo=1, routed)           0.170     0.311    btnD_sync/sync_reg_reg_n_0_[1]
+    SLICE_X1Y16          FDRE                                         r  btnD_sync/sync_reg_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[12]/C
+  Source:                 btnU_sync/sync_reg_reg[2]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[12]/D
+  Destination:            btnU_sync/sync_reg_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.256ns (70.880%)  route 0.105ns (29.120%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.324ns  (logic 0.141ns (43.491%)  route 0.183ns (56.509%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y22         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[12]/C
-    SLICE_X65Y22         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[12]/Q
-                         net (fo=1, routed)           0.105     0.246    seven_seg_controller/seg_refresh_counter_reg_n_0_[12]
-    SLICE_X65Y22         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     0.361 r  seven_seg_controller/seg_refresh_counter_reg[12]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[12]_i_1_n_7
-    SLICE_X65Y22         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[12]/D
+    SLICE_X0Y16          FDRE                         0.000     0.000 r  btnU_sync/sync_reg_reg[2]/C
+    SLICE_X0Y16          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnU_sync/sync_reg_reg[2]/Q
+                         net (fo=2, routed)           0.183     0.324    btnU_sync/p_0_in
+    SLICE_X0Y16          FDRE                                         r  btnU_sync/sync_reg_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[16]/C
+  Source:                 btnU_sync/sync_reg_reg[0]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[16]/D
+  Destination:            btnU_sync/sync_reg_reg[1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.256ns (70.880%)  route 0.105ns (29.120%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.332ns  (logic 0.141ns (42.453%)  route 0.191ns (57.547%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y23         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[16]/C
-    SLICE_X65Y23         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[16]/Q
-                         net (fo=1, routed)           0.105     0.246    seven_seg_controller/seg_refresh_counter_reg_n_0_[16]
-    SLICE_X65Y23         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     0.361 r  seven_seg_controller/seg_refresh_counter_reg[16]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[16]_i_1_n_7
-    SLICE_X65Y23         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[16]/D
+    SLICE_X0Y15          FDRE                         0.000     0.000 r  btnU_sync/sync_reg_reg[0]/C
+    SLICE_X0Y15          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  btnU_sync/sync_reg_reg[0]/Q
+                         net (fo=1, routed)           0.191     0.332    btnU_sync/sync_reg_reg_n_0_[0]
+    SLICE_X0Y16          FDRE                                         r  btnU_sync/sync_reg_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[4]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[10]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[4]/D
+  Destination:            seven_seg_controller/seg_refresh_counter_reg[10]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.256ns (70.880%)  route 0.105ns (29.120%))
+  Data Path Delay:        0.388ns  (logic 0.274ns (70.550%)  route 0.114ns (29.450%))
   Logic Levels:           2  (CARRY4=1 FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y20         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[4]/C
-    SLICE_X65Y20         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[4]/Q
-                         net (fo=1, routed)           0.105     0.246    seven_seg_controller/seg_refresh_counter_reg_n_0_[4]
-    SLICE_X65Y20         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     0.361 r  seven_seg_controller/seg_refresh_counter_reg[4]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[4]_i_1_n_7
-    SLICE_X65Y20         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[4]/D
+    SLICE_X64Y23         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[10]/C
+    SLICE_X64Y23         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  seven_seg_controller/seg_refresh_counter_reg[10]/Q
+                         net (fo=1, routed)           0.114     0.278    seven_seg_controller/seg_refresh_counter_reg_n_0_[10]
+    SLICE_X64Y23         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     0.388 r  seven_seg_controller/seg_refresh_counter_reg[8]_i_1/O[2]
+                         net (fo=1, routed)           0.000     0.388    seven_seg_controller/seg_refresh_counter_reg[8]_i_1_n_5
+    SLICE_X64Y23         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 seven_seg_controller/seg_refresh_counter_reg[8]/C
+  Source:                 seven_seg_controller/seg_refresh_counter_reg[14]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            seven_seg_controller/seg_refresh_counter_reg[8]/D
+  Destination:            seven_seg_controller/seg_refresh_counter_reg[14]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.256ns (70.880%)  route 0.105ns (29.120%))
+  Data Path Delay:        0.388ns  (logic 0.274ns (70.550%)  route 0.114ns (29.450%))
   Logic Levels:           2  (CARRY4=1 FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y21         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[8]/C
-    SLICE_X65Y21         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[8]/Q
-                         net (fo=1, routed)           0.105     0.246    seven_seg_controller/seg_refresh_counter_reg_n_0_[8]
-    SLICE_X65Y21         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     0.361 r  seven_seg_controller/seg_refresh_counter_reg[8]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[8]_i_1_n_7
-    SLICE_X65Y21         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[8]/D
+    SLICE_X64Y24         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[14]/C
+    SLICE_X64Y24         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  seven_seg_controller/seg_refresh_counter_reg[14]/Q
+                         net (fo=1, routed)           0.114     0.278    seven_seg_controller/seg_refresh_counter_reg_n_0_[14]
+    SLICE_X64Y24         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     0.388 r  seven_seg_controller/seg_refresh_counter_reg[12]_i_1/O[2]
+                         net (fo=1, routed)           0.000     0.388    seven_seg_controller/seg_refresh_counter_reg[12]_i_1_n_5
+    SLICE_X64Y24         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[14]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -616,18 +602,18 @@ Slack:                    inf
   Destination:            seven_seg_controller/seg_refresh_counter_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.252ns (69.733%)  route 0.109ns (30.267%))
+  Data Path Delay:        0.388ns  (logic 0.274ns (70.550%)  route 0.114ns (29.450%))
   Logic Levels:           2  (CARRY4=1 FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y19         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[2]/C
-    SLICE_X65Y19         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[2]/Q
-                         net (fo=1, routed)           0.109     0.250    seven_seg_controller/seg_refresh_counter_reg_n_0_[2]
-    SLICE_X65Y19         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     0.361 r  seven_seg_controller/seg_refresh_counter_reg[0]_i_1/O[2]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[0]_i_1_n_5
-    SLICE_X65Y19         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[2]/D
+    SLICE_X64Y21         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[2]/C
+    SLICE_X64Y21         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  seven_seg_controller/seg_refresh_counter_reg[2]/Q
+                         net (fo=1, routed)           0.114     0.278    seven_seg_controller/seg_refresh_counter_reg_n_0_[2]
+    SLICE_X64Y21         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     0.388 r  seven_seg_controller/seg_refresh_counter_reg[0]_i_1/O[2]
+                         net (fo=1, routed)           0.000     0.388    seven_seg_controller/seg_refresh_counter_reg[0]_i_1_n_5
+    SLICE_X64Y21         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -636,18 +622,18 @@ Slack:                    inf
   Destination:            seven_seg_controller/seg_refresh_counter_reg[6]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.361ns  (logic 0.252ns (69.733%)  route 0.109ns (30.267%))
+  Data Path Delay:        0.388ns  (logic 0.274ns (70.550%)  route 0.114ns (29.450%))
   Logic Levels:           2  (CARRY4=1 FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X65Y20         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[6]/C
-    SLICE_X65Y20         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  seven_seg_controller/seg_refresh_counter_reg[6]/Q
-                         net (fo=1, routed)           0.109     0.250    seven_seg_controller/seg_refresh_counter_reg_n_0_[6]
-    SLICE_X65Y20         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     0.361 r  seven_seg_controller/seg_refresh_counter_reg[4]_i_1/O[2]
-                         net (fo=1, routed)           0.000     0.361    seven_seg_controller/seg_refresh_counter_reg[4]_i_1_n_5
-    SLICE_X65Y20         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[6]/D
+    SLICE_X64Y22         FDRE                         0.000     0.000 r  seven_seg_controller/seg_refresh_counter_reg[6]/C
+    SLICE_X64Y22         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  seven_seg_controller/seg_refresh_counter_reg[6]/Q
+                         net (fo=1, routed)           0.114     0.278    seven_seg_controller/seg_refresh_counter_reg_n_0_[6]
+    SLICE_X64Y22         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.110     0.388 r  seven_seg_controller/seg_refresh_counter_reg[4]_i_1/O[2]
+                         net (fo=1, routed)           0.000     0.388    seven_seg_controller/seg_refresh_counter_reg[4]_i_1_n_5
+    SLICE_X64Y22         FDRE                                         r  seven_seg_controller/seg_refresh_counter_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
 

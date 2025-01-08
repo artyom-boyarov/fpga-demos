@@ -1,1 +1,0 @@
-program_hw_devices [current_hw_device]

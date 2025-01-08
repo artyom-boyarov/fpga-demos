@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.runs/synth_1/light_sensor_xadc_top.tcl"
+  variable script "C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.runs/synth_1/light_sensor_xadc_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -55,20 +55,6 @@ if {$::dispatch::connected} {
   }
 }
 
-proc create_report { reportName command } {
-  set status "."
-  append status $reportName ".fail"
-  if { [file exists $status] } {
-    eval file delete [glob $status]
-  }
-  send_msg_id runtcl-4 info "Executing : $command"
-  set retval [eval catch { $command } msg]
-  if { $retval != 0 } {
-    set fp [open $status w]
-    close $fp
-    send_msg_id runtcl-5 warning "$msg"
-  }
-}
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
@@ -79,20 +65,20 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.cache/wt [current_project]
-set_property parent.project_path C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.cache/wt [current_project]
+set_property parent.project_path C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2023.1.1/xhub/board_store/xilinx_board_store} [current_project]
+set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo c:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.cache/ip [current_project]
+set_property ip_output_repo c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib -sv C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.srcs/sources_1/new/light_sensor_xadc_top.sv
-read_ip -quiet C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc]
+read_verilog -library xil_defaultlib -sv C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.srcs/sources_1/new/light_sensor_xadc_top.sv
+read_ip -quiet C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -103,12 +89,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.srcs/constrs_1/new/Basys3.xdc
-set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.srcs/constrs_1/new/Basys3.xdc]
+read_xdc C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.srcs/constrs_1/new/Basys3.xdc
+set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.srcs/constrs_1/new/Basys3.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.srcs/utils_1/imports/synth_1/light_sensor_xadc_top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.srcs/utils_1/imports/synth_1/light_sensor_xadc_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -125,7 +111,7 @@ set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef light_sensor_xadc_top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file light_sensor_xadc_top_utilization_synth.rpt -pb light_sensor_xadc_top_utilization_synth.pb"
+generate_parallel_reports -reports { "report_utilization -file light_sensor_xadc_top_utilization_synth.rpt -pb light_sensor_xadc_top_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

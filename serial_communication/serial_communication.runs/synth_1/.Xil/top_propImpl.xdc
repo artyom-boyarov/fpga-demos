@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/artyo/Desktop/Vivado/serial_communication/serial_communication.srcs/constrs_1/new/basys3.xdc rfile:../../../serial_communication.srcs/constrs_1/new/basys3.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/serial_communication/serial_communication.srcs/constrs_1/new/basys3.xdc rfile:../../../serial_communication.srcs/constrs_1/new/basys3.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]

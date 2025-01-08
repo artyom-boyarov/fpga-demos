@@ -1,8 +1,8 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
-| Date         : Thu Jan  4 15:37:37 2024
-| Host         : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan  8 10:14:08 2025
+| Host         : artyom-hp running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file light_sensor_xadc_top_timing_summary_routed.rpt -pb light_sensor_xadc_top_timing_summary_routed.pb -rpx light_sensor_xadc_top_timing_summary_routed.rpx -warn_on_violation
 | Design       : light_sensor_xadc_top
 | Device       : 7a35t-cpg236
@@ -27,6 +27,7 @@ Timing Summary Report
   Timing Early Launch at Borrowing Latches   :  No
   Borrow Time for Max Delay Exceptions       :  Yes
   Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
 
   Corner  Analyze    Analyze    
   Name    Max Paths  Min Paths  
@@ -141,7 +142,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      6.249        0.000                      0                   45        0.366        0.000                      0                   45        4.500        0.000                       0                    17  
+      6.508        0.000                      0                   45        0.355        0.000                      0                   45        4.500        0.000                       0                    17  
 
 
 All user specified timing constraints are met.
@@ -164,7 +165,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         6.249        0.000                      0                   45        0.366        0.000                      0                   45        4.500        0.000                       0                    17  
+sys_clk_pin         6.508        0.000                      0                   45        0.355        0.000                      0                   45        4.500        0.000                       0                    17  
 
 
 ------------------------------------------------------------------------------------------------
@@ -214,73 +215,15 @@ Path Group    From Clock    To Clock
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        6.249ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.366ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.508ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.355ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             6.249ns  (required time - arrival time)
-  Source:                 impl_xadc/inst/DCLK
-                            (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            led_reg[2]/D
-                            (rising edge-triggered cell FDSE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.391ns  (logic 1.366ns (40.285%)  route 2.025ns (59.715%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.055ns
-    Clock Pessimism Removal (CPR):    0.258ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.967     3.425    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
-                         net (fo=16, routed)          1.534     5.055    impl_xadc/dclk_in
-    XADC_X0Y0            XADC                                         r  impl_xadc/inst/DCLK
-  -------------------------------------------------------------------    -------------------
-    XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[14])
-                                                      1.214     6.269 r  impl_xadc/inst/DO[14]
-                         net (fo=8, routed)           1.052     7.321    adc_data[14]
-    SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.152     7.473 r  led[10]_i_1/O
-                         net (fo=2, routed)           0.973     8.446    led[10]_i_1_n_0
-    SLICE_X29Y74         FDSE                                         r  led_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    W5                                                0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.862    13.250    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
-                         net (fo=16, routed)          1.420    14.761    clk_IBUF_BUFG
-    SLICE_X29Y74         FDSE                                         r  led_reg[2]/C
-                         clock pessimism              0.258    15.019    
-                         clock uncertainty           -0.035    14.984    
-    SLICE_X29Y74         FDSE (Setup_fdse_C_D)       -0.289    14.695    led_reg[2]
-  -------------------------------------------------------------------
-                         required time                         14.695    
-                         arrival time                          -8.446    
-  -------------------------------------------------------------------
-                         slack                                  6.249    
-
-Slack (MET) :             6.382ns  (required time - arrival time)
+Slack (MET) :             6.508ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[4]/S
@@ -288,7 +231,7 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.910ns  (logic 1.363ns (46.842%)  route 1.547ns (53.158%))
+  Data Path Delay:        2.784ns  (logic 1.363ns (48.964%)  route 1.421ns (51.036%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -314,9 +257,9 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.520     7.965    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.394     7.839    led[7]_i_1_n_0
     SLICE_X28Y74         FDSE                                         r  led_reg[4]/S
   -------------------------------------------------------------------    -------------------
 
@@ -334,11 +277,11 @@ Slack (MET) :             6.382ns  (required time - arrival time)
     SLICE_X28Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[4]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.965    
+                         arrival time                          -7.839    
   -------------------------------------------------------------------
-                         slack                                  6.382    
+                         slack                                  6.508    
 
-Slack (MET) :             6.382ns  (required time - arrival time)
+Slack (MET) :             6.508ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[5]/S
@@ -346,7 +289,7 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.910ns  (logic 1.363ns (46.842%)  route 1.547ns (53.158%))
+  Data Path Delay:        2.784ns  (logic 1.363ns (48.964%)  route 1.421ns (51.036%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -372,9 +315,9 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.520     7.965    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.394     7.839    led[7]_i_1_n_0
     SLICE_X28Y74         FDSE                                         r  led_reg[5]/S
   -------------------------------------------------------------------    -------------------
 
@@ -392,11 +335,11 @@ Slack (MET) :             6.382ns  (required time - arrival time)
     SLICE_X28Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[5]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.965    
+                         arrival time                          -7.839    
   -------------------------------------------------------------------
-                         slack                                  6.382    
+                         slack                                  6.508    
 
-Slack (MET) :             6.382ns  (required time - arrival time)
+Slack (MET) :             6.508ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[6]/S
@@ -404,7 +347,7 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.910ns  (logic 1.363ns (46.842%)  route 1.547ns (53.158%))
+  Data Path Delay:        2.784ns  (logic 1.363ns (48.964%)  route 1.421ns (51.036%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -430,9 +373,9 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.520     7.965    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.394     7.839    led[7]_i_1_n_0
     SLICE_X28Y74         FDSE                                         r  led_reg[6]/S
   -------------------------------------------------------------------    -------------------
 
@@ -450,11 +393,11 @@ Slack (MET) :             6.382ns  (required time - arrival time)
     SLICE_X28Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[6]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.965    
+                         arrival time                          -7.839    
   -------------------------------------------------------------------
-                         slack                                  6.382    
+                         slack                                  6.508    
 
-Slack (MET) :             6.382ns  (required time - arrival time)
+Slack (MET) :             6.508ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[7]/S
@@ -462,7 +405,7 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.910ns  (logic 1.363ns (46.842%)  route 1.547ns (53.158%))
+  Data Path Delay:        2.784ns  (logic 1.363ns (48.964%)  route 1.421ns (51.036%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -488,9 +431,9 @@ Slack (MET) :             6.382ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.520     7.965    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.394     7.839    led[7]_i_1_n_0
     SLICE_X28Y74         FDSE                                         r  led_reg[7]/S
   -------------------------------------------------------------------    -------------------
 
@@ -508,11 +451,11 @@ Slack (MET) :             6.382ns  (required time - arrival time)
     SLICE_X28Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[7]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.965    
+                         arrival time                          -7.839    
   -------------------------------------------------------------------
-                         slack                                  6.382    
+                         slack                                  6.508    
 
-Slack (MET) :             6.386ns  (required time - arrival time)
+Slack (MET) :             6.512ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[1]/S
@@ -520,7 +463,7 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.905ns  (logic 1.363ns (46.912%)  route 1.542ns (53.088%))
+  Data Path Delay:        2.779ns  (logic 1.363ns (49.041%)  route 1.416ns (50.959%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -546,9 +489,9 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.516     7.960    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.390     7.834    led[7]_i_1_n_0
     SLICE_X29Y74         FDSE                                         r  led_reg[1]/S
   -------------------------------------------------------------------    -------------------
 
@@ -566,11 +509,11 @@ Slack (MET) :             6.386ns  (required time - arrival time)
     SLICE_X29Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[1]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.960    
+                         arrival time                          -7.834    
   -------------------------------------------------------------------
-                         slack                                  6.386    
+                         slack                                  6.512    
 
-Slack (MET) :             6.386ns  (required time - arrival time)
+Slack (MET) :             6.512ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[2]/S
@@ -578,7 +521,7 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.905ns  (logic 1.363ns (46.912%)  route 1.542ns (53.088%))
+  Data Path Delay:        2.779ns  (logic 1.363ns (49.041%)  route 1.416ns (50.959%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -604,9 +547,9 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.516     7.960    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.390     7.834    led[7]_i_1_n_0
     SLICE_X29Y74         FDSE                                         r  led_reg[2]/S
   -------------------------------------------------------------------    -------------------
 
@@ -624,11 +567,11 @@ Slack (MET) :             6.386ns  (required time - arrival time)
     SLICE_X29Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[2]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.960    
+                         arrival time                          -7.834    
   -------------------------------------------------------------------
-                         slack                                  6.386    
+                         slack                                  6.512    
 
-Slack (MET) :             6.386ns  (required time - arrival time)
+Slack (MET) :             6.512ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[3]/S
@@ -636,7 +579,7 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.905ns  (logic 1.363ns (46.912%)  route 1.542ns (53.088%))
+  Data Path Delay:        2.779ns  (logic 1.363ns (49.041%)  route 1.416ns (50.959%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.036ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -662,9 +605,9 @@ Slack (MET) :             6.386ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 r  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I0_O)        0.149     7.444 r  led[7]_i_1/O
-                         net (fo=7, routed)           0.516     7.960    led[7]_i_1_n_0
+                         net (fo=7, routed)           0.390     7.834    led[7]_i_1_n_0
     SLICE_X29Y74         FDSE                                         r  led_reg[3]/S
   -------------------------------------------------------------------    -------------------
 
@@ -682,9 +625,9 @@ Slack (MET) :             6.386ns  (required time - arrival time)
     SLICE_X29Y74         FDSE (Setup_fdse_C_S)       -0.637    14.347    led_reg[3]
   -------------------------------------------------------------------
                          required time                         14.347    
-                         arrival time                          -7.960    
+                         arrival time                          -7.834    
   -------------------------------------------------------------------
-                         slack                                  6.386    
+                         slack                                  6.512    
 
 Slack (MET) :             6.573ns  (required time - arrival time)
   Source:                 impl_xadc/inst/DCLK
@@ -694,7 +637,7 @@ Slack (MET) :             6.573ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.941ns  (logic 1.338ns (45.495%)  route 1.603ns (54.505%))
+  Data Path Delay:        2.941ns  (logic 1.338ns (45.496%)  route 1.603ns (54.504%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -720,7 +663,7 @@ Slack (MET) :             6.573ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 f  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I1_O)        0.124     7.419 r  led[15]_i_1/O
                          net (fo=7, routed)           0.576     7.996    led[15]_i_1_n_0
     SLICE_X29Y75         FDRE                                         r  led_reg[10]/R
@@ -752,7 +695,7 @@ Slack (MET) :             6.573ns  (required time - arrival time)
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.941ns  (logic 1.338ns (45.495%)  route 1.603ns (54.505%))
+  Data Path Delay:        2.941ns  (logic 1.338ns (45.496%)  route 1.603ns (54.504%))
   Logic Levels:           1  (LUT2=1)
   Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
@@ -778,7 +721,7 @@ Slack (MET) :             6.573ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
                                                       1.214     6.269 f  impl_xadc/inst/DO[15]
-                         net (fo=3, routed)           1.027     7.295    adc_data[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
     SLICE_X28Y75         LUT2 (Prop_lut2_I1_O)        0.124     7.419 r  led[15]_i_1/O
                          net (fo=7, routed)           0.576     7.996    led[15]_i_1_n_0
     SLICE_X29Y75         FDRE                                         r  led_reg[11]/R
@@ -802,13 +745,71 @@ Slack (MET) :             6.573ns  (required time - arrival time)
   -------------------------------------------------------------------
                          slack                                  6.573    
 
+Slack (MET) :             6.573ns  (required time - arrival time)
+  Source:                 impl_xadc/inst/DCLK
+                            (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            led_reg[12]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        2.941ns  (logic 1.338ns (45.496%)  route 1.603ns (54.504%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.761ns = ( 14.761 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.055ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=16, routed)          1.534     5.055    impl_xadc/dclk_in
+    XADC_X0Y0            XADC                                         r  impl_xadc/inst/DCLK
+  -------------------------------------------------------------------    -------------------
+    XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
+                                                      1.214     6.269 f  impl_xadc/inst/DO[15]
+                         net (fo=3, routed)           1.026     7.295    adc_data[15]
+    SLICE_X28Y75         LUT2 (Prop_lut2_I1_O)        0.124     7.419 r  led[15]_i_1/O
+                         net (fo=7, routed)           0.576     7.996    led[15]_i_1_n_0
+    SLICE_X29Y75         FDRE                                         r  led_reg[12]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=16, routed)          1.420    14.761    clk_IBUF_BUFG
+    SLICE_X29Y75         FDRE                                         r  led_reg[12]/C
+                         clock pessimism              0.272    15.033    
+                         clock uncertainty           -0.035    14.998    
+    SLICE_X29Y75         FDRE (Setup_fdre_C_R)       -0.429    14.569    led_reg[12]
+  -------------------------------------------------------------------
+                         required time                         14.569    
+                         arrival time                          -7.996    
+  -------------------------------------------------------------------
+                         slack                                  6.573    
+
 
 
 
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.366ns  (arrival time - required time)
+Slack (MET) :             0.355ns  (arrival time - required time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[4]/D
@@ -816,7 +817,7 @@ Slack (MET) :             0.366ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.469ns  (logic 0.256ns (54.562%)  route 0.213ns (45.438%))
+  Data Path Delay:        0.458ns  (logic 0.256ns (55.869%)  route 0.202ns (44.131%))
   Logic Levels:           0  
   Clock Path Skew:        0.033ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.942ns
@@ -837,7 +838,7 @@ Slack (MET) :             0.366ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[14])
                                                       0.256     1.687 r  impl_xadc/inst/DO[14]
-                         net (fo=8, routed)           0.213     1.900    adc_data[14]
+                         net (fo=8, routed)           0.202     1.889    adc_data[14]
     SLICE_X28Y74         FDSE                                         r  led_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
@@ -854,11 +855,11 @@ Slack (MET) :             0.366ns  (arrival time - required time)
     SLICE_X28Y74         FDSE (Hold_fdse_C_D)         0.070     1.534    led_reg[4]
   -------------------------------------------------------------------
                          required time                         -1.534    
-                         arrival time                           1.900    
+                         arrival time                           1.889    
   -------------------------------------------------------------------
-                         slack                                  0.366    
+                         slack                                  0.355    
 
-Slack (MET) :             0.377ns  (arrival time - required time)
+Slack (MET) :             0.386ns  (arrival time - required time)
   Source:                 impl_xadc/inst/DCLK
                             (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_reg[12]/D
@@ -866,7 +867,7 @@ Slack (MET) :             0.377ns  (arrival time - required time)
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.437ns  (logic 0.256ns (58.643%)  route 0.181ns (41.357%))
+  Data Path Delay:        0.446ns  (logic 0.256ns (57.454%)  route 0.190ns (42.546%))
   Logic Levels:           0  
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.942ns
@@ -887,7 +888,7 @@ Slack (MET) :             0.377ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
     XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[14])
                                                       0.256     1.687 r  impl_xadc/inst/DO[14]
-                         net (fo=8, routed)           0.181     1.868    adc_data[14]
+                         net (fo=8, routed)           0.190     1.877    adc_data[14]
     SLICE_X29Y75         FDRE                                         r  led_reg[12]/D
   -------------------------------------------------------------------    -------------------
 
@@ -904,9 +905,59 @@ Slack (MET) :             0.377ns  (arrival time - required time)
     SLICE_X29Y75         FDRE (Hold_fdre_C_D)         0.047     1.491    led_reg[12]
   -------------------------------------------------------------------
                          required time                         -1.491    
-                         arrival time                           1.868    
+                         arrival time                           1.877    
   -------------------------------------------------------------------
-                         slack                                  0.377    
+                         slack                                  0.386    
+
+Slack (MET) :             0.409ns  (arrival time - required time)
+  Source:                 impl_xadc/inst/DCLK
+                            (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            led_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.492ns  (logic 0.256ns (52.082%)  route 0.236ns (47.918%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.942ns
+    Source Clock Delay      (SCD):    1.431ns
+    Clock Pessimism Removal (CPR):    0.498ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=16, routed)          0.548     1.431    impl_xadc/dclk_in
+    XADC_X0Y0            XADC                                         r  impl_xadc/inst/DCLK
+  -------------------------------------------------------------------    -------------------
+    XADC_X0Y0            XADC (Prop_xadc_DCLK_DO[15])
+                                                      0.256     1.687 r  impl_xadc/inst/DO[15]
+                         net (fo=3, routed)           0.236     1.923    adc_data[15]
+    SLICE_X28Y75         FDRE                                         r  led_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=16, routed)          0.815     1.942    clk_IBUF_BUFG
+    SLICE_X28Y75         FDRE                                         r  led_reg[8]/C
+                         clock pessimism             -0.498     1.444    
+    SLICE_X28Y75         FDRE (Hold_fdre_C_D)         0.070     1.514    led_reg[8]
+  -------------------------------------------------------------------
+                         required time                         -1.514    
+                         arrival time                           1.923    
+  -------------------------------------------------------------------
+                         slack                                  0.409    
 
 Slack (MET) :             0.458ns  (arrival time - required time)
   Source:                 impl_xadc/inst/DCLK
@@ -1252,56 +1303,6 @@ Slack (MET) :             0.518ns  (arrival time - required time)
     SLICE_X29Y75         FDRE                                         r  led_reg[11]/C
                          clock pessimism             -0.498     1.444    
     SLICE_X29Y75         FDRE (Hold_fdre_C_CE)       -0.039     1.405    led_reg[11]
-  -------------------------------------------------------------------
-                         required time                         -1.405    
-                         arrival time                           1.923    
-  -------------------------------------------------------------------
-                         slack                                  0.518    
-
-Slack (MET) :             0.518ns  (arrival time - required time)
-  Source:                 impl_xadc/inst/DCLK
-                            (rising edge-triggered cell XADC clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            led_reg[12]/CE
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.492ns  (logic 0.256ns (52.040%)  route 0.236ns (47.960%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.942ns
-    Source Clock Delay      (SCD):    1.431ns
-    Clock Pessimism Removal (CPR):    0.498ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.631     0.858    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
-                         net (fo=16, routed)          0.548     1.431    impl_xadc/dclk_in
-    XADC_X0Y0            XADC                                         r  impl_xadc/inst/DCLK
-  -------------------------------------------------------------------    -------------------
-    XADC_X0Y0            XADC (Prop_xadc_DCLK_DRDY)
-                                                      0.256     1.687 r  impl_xadc/inst/DRDY
-                         net (fo=17, routed)          0.236     1.923    adc_data_ready
-    SLICE_X29Y75         FDRE                                         r  led_reg[12]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    W5                                                0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.685     1.099    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
-                         net (fo=16, routed)          0.815     1.942    clk_IBUF_BUFG
-    SLICE_X29Y75         FDRE                                         r  led_reg[12]/C
-                         clock pessimism             -0.498     1.444    
-    SLICE_X29Y75         FDRE (Hold_fdre_C_CE)       -0.039     1.405    led_reg[12]
   -------------------------------------------------------------------
                          required time                         -1.405    
                          arrival time                           1.923    
@@ -1718,7 +1719,7 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.129ns  (logic 1.349ns (63.400%)  route 0.779ns (36.600%))
+  Data Path Delay:        2.251ns  (logic 1.349ns (59.951%)  route 0.901ns (40.049%))
   Logic Levels:           1  (OBUF=1)
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
@@ -1739,9 +1740,9 @@ Slack:                    inf
     SLICE_X29Y75         FDRE                                         r  led_reg[13]/C
   -------------------------------------------------------------------    -------------------
     SLICE_X29Y75         FDRE (Prop_fdre_C_Q)         0.141     1.572 r  led_reg[13]/Q
-                         net (fo=1, routed)           0.779     2.351    led_OBUF[13]
-    N3                   OBUF (Prop_obuf_I_O)         1.208     3.560 r  led_OBUF[13]_inst/O
-                         net (fo=0)                   0.000     3.560    led[13]
+                         net (fo=1, routed)           0.901     2.474    led_OBUF[13]
+    N3                   OBUF (Prop_obuf_I_O)         1.208     3.682 r  led_OBUF[13]_inst/O
+                         net (fo=0)                   0.000     3.682    led[13]
     N3                                                                r  led[13] (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -1786,7 +1787,7 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.286ns  (logic 1.403ns (61.397%)  route 0.882ns (38.603%))
+  Data Path Delay:        2.314ns  (logic 1.403ns (60.654%)  route 0.910ns (39.346%))
   Logic Levels:           1  (OBUF=1)
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
@@ -1807,9 +1808,9 @@ Slack:                    inf
     SLICE_X29Y75         FDRE                                         r  led_reg[15]/C
   -------------------------------------------------------------------    -------------------
     SLICE_X29Y75         FDRE (Prop_fdre_C_Q)         0.128     1.559 r  led_reg[15]/Q
-                         net (fo=1, routed)           0.882     2.442    led_OBUF[15]
-    L1                   OBUF (Prop_obuf_I_O)         1.275     3.717 r  led_OBUF[15]_inst/O
-                         net (fo=0)                   0.000     3.717    led[15]
+                         net (fo=1, routed)           0.910     2.470    led_OBUF[15]
+    L1                   OBUF (Prop_obuf_I_O)         1.275     3.745 r  led_OBUF[15]_inst/O
+                         net (fo=0)                   0.000     3.745    led[15]
     L1                                                                r  led[15] (OUT)
   -------------------------------------------------------------------    -------------------
 

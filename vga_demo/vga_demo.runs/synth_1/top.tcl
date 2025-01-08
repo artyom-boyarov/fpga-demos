@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.runs/synth_1/top.tcl"
+  variable script "C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -55,20 +55,6 @@ if {$::dispatch::connected} {
   }
 }
 
-proc create_report { reportName command } {
-  set status "."
-  append status $reportName ".fail"
-  if { [file exists $status] } {
-    eval file delete [glob $status]
-  }
-  send_msg_id runtcl-4 info "Executing : $command"
-  set retval [eval catch { $command } msg]
-  if { $retval != 0 } {
-    set fp [open $status w]
-    close $fp
-    send_msg_id runtcl-5 warning "$msg"
-  }
-}
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
@@ -79,29 +65,29 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.cache/wt [current_project]
-set_property parent.project_path C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.cache/wt [current_project]
+set_property parent.project_path C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.cache/ip [current_project]
+set_property ip_output_repo c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/artyo/Desktop/Vivado/vga_demo/tools/image_file.mem
-  C:/Users/artyo/Desktop/Vivado/vga_demo/tools/Mandelbrot_440x330.mem
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/tools/image_file.mem
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/tools/Mandelbrot_440x330.mem
 }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/effects.sv
-  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/raster_bars.sv
-  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/vga_counter.sv
-  C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/new/top.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/sources_1/new/effects.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/sources_1/new/raster_bars.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/sources_1/new/vga_counter.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/sources_1/new/top.sv
 }
-read_ip -quiet C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+read_ip -quiet c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -112,12 +98,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/constrs_1/new/basys3.xdc
-set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/constrs_1/new/basys3.xdc]
+read_xdc C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/constrs_1/new/basys3.xdc
+set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/constrs_1/new/basys3.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -134,7 +120,7 @@ set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"
+generate_parallel_reports -reports { "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

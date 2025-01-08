@@ -1,11 +1,11 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+// Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
-// Date        : Thu Jan  4 14:58:35 2024
-// Host        : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+// Date        : Wed Jan  8 10:11:52 2025
+// Host        : artyom-hp running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Users/artyo/Desktop/Vivado/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v
+//               c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/light_sensor_xadc/light_sensor_xadc.gen/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v
 // Design      : xadc_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
@@ -14,6 +14,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
+(* CORE_GENERATION_INFO = "xadc_wiz_0,xadc_wiz_v3_3_11,{component_name=xadc_wiz_0,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=true,enable_Vccaux_alaram=true,enable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=true,user_temp_alaram=true,timing_mode=continuous,channel_averaging=None,sequencer_mode=on,startup_channel_selection=contineous_sequence}" *) 
 module xadc_wiz_0(daddr_in, dclk_in, den_in, di_in, dwe_in, reset_in, 
   vauxp6, vauxn6, vauxp7, vauxn7, vauxp14, vauxn14, vauxp15, vauxn15, busy_out, channel_out, do_out, 
   drdy_out, eoc_out, eos_out, ot_out, vccaux_alarm_out, vccint_alarm_out, user_temp_alarm_out, 

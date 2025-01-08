@@ -1,12 +1,12 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Thu May 11 18:32:10 2023
-| Host         : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan  8 11:14:53 2025
+| Host         : artyom-hp running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
 | Device       : xc7a35t
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 Control Set Information
 
@@ -63,23 +63,23 @@ Table of Contents
 | No           | Yes                   | No                     |              22 |            6 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              27 |            8 |
+| Yes          | Yes                   | No                     |              27 |            7 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
-|      Clock Signal      |                    Enable Signal                    |      Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
-+------------------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
-|  clk_wiz/inst/clk_out1 |                                                     | vga_green[3]_i_1_n_0      |                1 |              4 |         4.00 |
-|  clk_wiz/inst/clk_out1 | impl_vga_counter/E[0]                               | impl_vga_counter/cnt_line |                1 |              5 |         5.00 |
-|  clk_wiz/inst/clk_out1 |                                                     |                           |                2 |              7 |         3.50 |
-|  clk_wiz/inst/clk_out1 |                                                     | vga_red[3]_i_1_n_0        |                2 |              8 |         4.00 |
-|  clk_wiz/inst/clk_out1 |                                                     | btnC_IBUF                 |                3 |             10 |         3.33 |
-|  clk_wiz/inst/clk_out1 | impl_vga_counter/pos_y_0                            | btnC_IBUF                 |                4 |             10 |         2.50 |
-|  clk_wiz/inst/clk_out1 | effects_impl/raster_bars_impl/bar_colour[0]_i_1_n_0 | impl_vga_counter/cnt_line |                3 |             12 |         4.00 |
-+------------------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
++------------------------------+-----------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|         Clock Signal         |                    Enable Signal                    |          Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------+-----------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|  impl_clk25mhz/inst/clk_out1 |                                                     | vga_green[3]_i_1_n_0              |                1 |              4 |         4.00 |
+|  impl_clk25mhz/inst/clk_out1 | impl_vga_counter/E[0]                               | impl_vga_counter/cnt_line         |                1 |              5 |         5.00 |
+|  impl_clk25mhz/inst/clk_out1 |                                                     |                                   |                2 |              7 |         3.50 |
+|  impl_clk25mhz/inst/clk_out1 |                                                     | vga_red[3]_i_1_n_0                |                2 |              8 |         4.00 |
+|  impl_clk25mhz/inst/clk_out1 |                                                     | impl_vga_counter/pos_x[9]_i_1_n_0 |                3 |             10 |         3.33 |
+|  impl_clk25mhz/inst/clk_out1 | impl_vga_counter/pos_y_0                            | btnC_IBUF                         |                3 |             10 |         3.33 |
+|  impl_clk25mhz/inst/clk_out1 | effects_impl/raster_bars_impl/bar_colour[0]_i_1_n_0 | impl_vga_counter/cnt_line         |                3 |             12 |         4.00 |
++------------------------------+-----------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
 
 

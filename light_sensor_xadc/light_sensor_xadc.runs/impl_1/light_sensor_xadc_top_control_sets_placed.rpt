@@ -1,8 +1,8 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
-| Date         : Thu Jan  4 15:37:12 2024
-| Host         : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan  8 10:13:38 2025
+| Host         : artyom-hp running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file light_sensor_xadc_top_control_sets_placed.rpt
 | Design       : light_sensor_xadc_top
 | Device       : xc7a35t
@@ -74,8 +74,8 @@ Table of Contents
 |  Clock Signal  |    Enable Signal   | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+--------------------+------------------+------------------+----------------+--------------+
 |  clk_IBUF_BUFG | impl_xadc/drdy_out |                  |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG | impl_xadc/drdy_out | led[7]_i_1_n_0   |                2 |              7 |         3.50 |
 |  clk_IBUF_BUFG | impl_xadc/drdy_out | led[15]_i_1_n_0  |                1 |              7 |         7.00 |
+|  clk_IBUF_BUFG | impl_xadc/drdy_out | led[7]_i_1_n_0   |                2 |              7 |         3.50 |
 +----------------+--------------------+------------------+------------------+----------------+--------------+
 
 

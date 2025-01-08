@@ -1,12 +1,12 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Sun Jan 22 13:44:58 2023
-| Host         : LAPTOP-RLSJ6GTT running 64-bit major release  (build 9200)
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan  8 09:35:35 2025
+| Host         : artyom-hp running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
 | Device       : xc7a35t
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 Control Set Information
 
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     2 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     3 |
+| Unused register locations in slices containing registers |     7 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,7 +58,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              21 |            6 |
+| No           | No                    | No                     |              33 |           12 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |              16 |            4 |
@@ -70,11 +70,11 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+--------------------------------------------+------------------+------------------+----------------+--------------+
-|  Clock Signal  |                Enable Signal               | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+--------------------------------------------+------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG | button_counter/displayed_number[0]_i_1_n_0 |                  |                4 |             16 |         4.00 |
-|  clk_IBUF_BUFG |                                            |                  |                6 |             21 |         3.50 |
-+----------------+--------------------------------------------+------------------+------------------+----------------+--------------+
++----------------+----------------------+------------------+------------------+----------------+--------------+
+|  Clock Signal  |     Enable Signal    | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+----------------------+------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | btnC_sync/btnCSynced |                  |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG |                      |                  |               12 |             33 |         2.75 |
++----------------+----------------------+------------------+------------------+----------------+--------------+
 
 

@@ -1,13 +1,24 @@
 #-----------------------------------------------------------
-# Vivado v2022.1 (64-bit)
-# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
-# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Thu May 11 18:30:50 2023
-# Process ID: 13136
-# Current directory: C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.runs/synth_1
-# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.runs/synth_1/top.vds
-# Journal file: C:/Users/artyo/Desktop/Vivado/vga_demo/vga_demo.runs/synth_1\vivado.jou
-# Running On: LAPTOP-RLSJ6GTT, OS: Windows, CPU Frequency: 2371 MHz, CPU Physical cores: 6, Host memory: 7907 MB
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jan  8 11:13:16 2025
+# Process ID         : 21792
+# Current directory  : C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.runs/synth_1
+# Command line       : vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file           : C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.runs/synth_1/top.vds
+# Journal file       : C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/vga_demo/vga_demo.runs/synth_1\vivado.jou
+# Running On         : artyom-hp
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : AMD Ryzen 5 4500U with Radeon Graphics         
+# CPU Frequency      : 2371 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 6
+# Host memory        : 12202 MB
+# Swap memory        : 13823 MB
+# Total Virtual      : 26026 MB
+# Available Virtual  : 5238 MB
 #-----------------------------------------------------------
 source top.tcl -notrace

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.runs/synth_1/top.tcl"
+  variable script "C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -55,22 +55,7 @@ if {$::dispatch::connected} {
   }
 }
 
-proc create_report { reportName command } {
-  set status "."
-  append status $reportName ".fail"
-  if { [file exists $status] } {
-    eval file delete [glob $status]
-  }
-  send_msg_id runtcl-4 info "Executing : $command"
-  set retval [eval catch { $command } msg]
-  if { $retval != 0 } {
-    set fp [open $status w]
-    close $fp
-    send_msg_id runtcl-5 warning "$msg"
-  }
-}
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
 set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
@@ -79,26 +64,26 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.cache/wt [current_project]
-set_property parent.project_path C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.cache/wt [current_project]
+set_property parent.project_path C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2023.1.1/xhub/board_store/xilinx_board_store} [current_project]
+set_property board_part_repo_paths {C:/Users/artyo/AppData/Roaming/Xilinx/Vivado/2024.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo c:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.cache/ip [current_project]
+set_property ip_output_repo c:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/TEMP_DISPLAY_DATA_DEC_ROM.mem
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/TEMP_DISPLAY_DATA_INT_ROM.mem
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/TEMP_DISPLAY_DATA_DEC_ROM.mem
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/TEMP_DISPLAY_DATA_INT_ROM.mem
 }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/sources_1/new/BCD.sv
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/sources_1/new/adt7410_i2c.sv
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/sources_1/new/seven_seg_controller.sv
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/sources_1/new/temp_data_to_display_num.sv
-  C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/sources_1/new/top.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/sources_1/new/BCD.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/sources_1/new/adt7410_i2c.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/sources_1/new/seven_seg_controller.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/sources_1/new/temp_data_to_display_num.sv
+  C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/sources_1/new/top.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -109,12 +94,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/constrs_1/new/Basys3.xdc
-set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/constrs_1/new/Basys3.xdc]
+read_xdc C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/constrs_1/new/Basys3.xdc
+set_property used_in_implementation false [get_files C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/constrs_1/new/Basys3.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/Vivado/temp_sensor/temp_sensor.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/artyo/Desktop/fpga-hdl/fpga-demos/temp_sensor/temp_sensor.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -131,7 +116,7 @@ set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"
+generate_parallel_reports -reports { "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]
